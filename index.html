@@ -854,7 +854,7 @@
               <h2 class="text-2xl font-bold">${escapeHTML(profile?.display_name || 'User')}</h2>
               <p class="text-gray-500">@${escapeHTML(profile?.username)}</p>
             </div>
-            ${userId === currentUser?.id ? '<button onclick="goToPage(\'settings\')" class="bg-stash-blue text-white px-4 py-2 rounded-full">Edit profile</button>' : '<button onclick="followUser(\''+userId+'\')" class="bg-stash-blue text-white px-4 py-2 rounded-full">Follow</button>'}
+            ${userId === currentUser?.id ? '<button onclick="loadSettings()" class="bg-stash-blue text-white px-4 py-2 rounded-full">Edit profile</button>' : '<button onclick="followUser(\''+userId+'\')" class="bg-stash-blue text-white px-4 py-2 rounded-full">Follow</button>'}
           </div>
           <p class="mt-2">${escapeHTML(profile?.bio || '')}</p>
           <div class="flex gap-4 mt-2 text-gray-500">
@@ -876,7 +876,6 @@
     const { error } = await _supabase.rpc('increment_follow_counts', { follower: currentUser.id, following: userId });
     if (error) console.warn('RPC error, updating manually', error);
     else {
-      // Optimistic update
       if (currentProfile) currentProfile.following_count++;
       const followBtn = document.querySelector(`button[onclick*="followUser('${userId}')"]`);
       if (followBtn) followBtn.textContent = 'Following';
@@ -884,66 +883,64 @@
     createNotification(userId, 'follow');
   }
 
-  // ==================== SETTINGS (with banner) ====================
+  // ==================== SETTINGS (fixed) ====================
   async function loadSettings() {
-  if (!currentUser) {
-    goToPage('home');
-    return;
-  }
-  try {
-    // Fetch user settings, create default if not exists
-    let { data: settings, error } = await _supabase
-      .from('user_settings')
-      .select('*')
-      .eq('user_id', currentUser.id)
-      .maybeSingle();
-
-    if (error) throw error;
-    if (!settings) {
-      // Create default settings row
-      const { error: insertError } = await _supabase
-        .from('user_settings')
-        .insert({ user_id: currentUser.id });
-      if (insertError) throw insertError;
-      settings = { email_notifications: true };
+    if (!currentUser) {
+      goToPage('home');
+      return;
     }
+    try {
+      let { data: settings, error } = await _supabase
+        .from('user_settings')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .maybeSingle();
 
-    const html = `
-      <div class="p-4 max-w-lg">
-        <h2 class="text-2xl font-bold mb-4">Settings</h2>
-        <form id="settings-form" class="space-y-4">
-          <div>
-            <label class="block text-sm">Display name</label>
-            <input type="text" id="settings-display-name" value="${escapeHTML(currentProfile?.display_name || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
-          </div>
-          <div>
-            <label class="block text-sm">Bio</label>
-            <textarea id="settings-bio" rows="3" class="w-full bg-black border border-stash rounded-lg p-3">${escapeHTML(currentProfile?.bio || '')}</textarea>
-          </div>
-          <div>
-            <label class="block text-sm">Avatar URL</label>
-            <input type="url" id="settings-avatar" value="${escapeHTML(currentProfile?.avatar_url || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
-          </div>
-          <div>
-            <label class="block text-sm">Banner URL</label>
-            <input type="url" id="settings-banner" value="${escapeHTML(currentProfile?.banner_url || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
-          </div>
-          <div class="flex items-center gap-2">
-            <input type="checkbox" id="settings-email" ${settings?.email_notifications ? 'checked' : ''} class="w-4 h-4">
-            <label for="settings-email" class="text-sm">Email notifications</label>
-          </div>
-          <button type="submit" class="bg-stash-blue text-white px-6 py-2 rounded-full">Save</button>
-        </form>
-        <hr class="my-4 border-stash">
-        <button onclick="changePassword()" class="bg-gray-700 text-white px-6 py-2 rounded-full">Change password</button>
-      </div>
-    `;
-    mainContent.innerHTML = html;
-    document.getElementById('settings-form').addEventListener('submit', saveSettings);
-  } catch (err) {
-    console.error('Settings error:', err);
-    mainContent.innerHTML = '<div class="p-4 text-red-500">Failed to load settings. Please try again.</div>';
-  }
+      if (error) throw error;
+      if (!settings) {
+        const { error: insertError } = await _supabase
+          .from('user_settings')
+          .insert({ user_id: currentUser.id });
+        if (insertError) throw insertError;
+        settings = { email_notifications: true };
+      }
+
+      const html = `
+        <div class="p-4 max-w-lg">
+          <h2 class="text-2xl font-bold mb-4">Settings</h2>
+          <form id="settings-form" class="space-y-4">
+            <div>
+              <label class="block text-sm">Display name</label>
+              <input type="text" id="settings-display-name" value="${escapeHTML(currentProfile?.display_name || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
+            </div>
+            <div>
+              <label class="block text-sm">Bio</label>
+              <textarea id="settings-bio" rows="3" class="w-full bg-black border border-stash rounded-lg p-3">${escapeHTML(currentProfile?.bio || '')}</textarea>
+            </div>
+            <div>
+              <label class="block text-sm">Avatar URL</label>
+              <input type="url" id="settings-avatar" value="${escapeHTML(currentProfile?.avatar_url || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
+            </div>
+            <div>
+              <label class="block text-sm">Banner URL</label>
+              <input type="url" id="settings-banner" value="${escapeHTML(currentProfile?.banner_url || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="settings-email" ${settings?.email_notifications ? 'checked' : ''} class="w-4 h-4">
+              <label for="settings-email" class="text-sm">Email notifications</label>
+            </div>
+            <button type="submit" class="bg-stash-blue text-white px-6 py-2 rounded-full">Save</button>
+          </form>
+          <hr class="my-4 border-stash">
+          <button onclick="changePassword()" class="bg-gray-700 text-white px-6 py-2 rounded-full">Change password</button>
+        </div>
+      `;
+      mainContent.innerHTML = html;
+      document.getElementById('settings-form').addEventListener('submit', saveSettings);
+    } catch (err) {
+      console.error('Settings error:', err);
+      mainContent.innerHTML = '<div class="p-4 text-red-500">Failed to load settings. Please try again.</div>';
+    }
   }
 
   async function saveSettings(e) {
