@@ -23,9 +23,12 @@
     @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
     .modal-overlay { background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
     .no-scrollbar::-webkit-scrollbar { display: none; }
-    /* Compose area */
     .compose-box { cursor: pointer; transition: background-color 0.2s; }
     .compose-box:hover { background-color: #080808; }
+    /* Consistent avatar sizing */
+    .avatar-feed { width: 48px; height: 48px; object-fit: cover; border-radius: 9999px; }
+    .avatar-sidebar { width: 40px; height: 40px; object-fit: cover; border-radius: 9999px; }
+    .avatar-profile { width: 96px; height: 96px; object-fit: cover; border-radius: 9999px; border: 4px solid black; }
   </style>
 </head>
 <body class="bg-black text-[#e7e9ea]">
@@ -34,7 +37,7 @@
   <!-- Left Sidebar (desktop) -->
   <div class="lg:w-1/5 xl:w-1/5 bg-black border-r border-stash hidden lg:block sticky top-0 h-screen overflow-y-auto no-scrollbar">
     <div class="p-4 flex flex-col h-full">
-      <!-- SVG Logo (replaces text) -->
+      <!-- SVG Logo -->
       <div class="mb-6">
         <svg width="140" height="56" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" class="w-auto h-12">
           <defs>
@@ -59,7 +62,7 @@
       </nav>
       <div id="user-info" class="mt-auto pt-4 hidden">
         <div class="flex items-center gap-2 p-2 rounded-full hover-stash cursor-pointer" onclick="goToPage('profile')">
-          <img id="user-avatar" src="" class="w-10 h-10 rounded-full object-cover">
+          <img id="user-avatar" src="" class="avatar-sidebar">
           <div class="hidden xl:block">
             <p id="user-display-name" class="font-bold"></p>
             <p id="user-username" class="text-gray-500 text-sm"></p>
@@ -205,7 +208,7 @@
   let viewedPosts = new Set();
   let notificationsInterval = null;
   let messagesInterval = null;
-  let scrollListener = null; // for infinite scroll
+  let scrollListener = null;
 
   // ==================== DOM HELPERS ====================
   function escapeHTML(str) {
@@ -248,7 +251,7 @@
       const match = url.match(/([0-9]+)$/);
       return `https://player.vimeo.com/video/${match[1]}`;
     }
-    return null; // invalid
+    return null;
   }
 
   // ==================== AUTH ====================
@@ -416,11 +419,10 @@
   }
 
   function renderHomeFeed(reset) {
-    // Compose area at the top
     const composeHtml = `
       <div class="p-4 border-b border-stash compose-box" onclick="document.getElementById('compose-modal').classList.remove('hidden')">
         <div class="flex gap-3">
-          <img src="${currentUser ? (currentProfile?.avatar_url || 'https://via.placeholder.com/40') : 'https://via.placeholder.com/40'}" class="w-12 h-12 rounded-full object-cover">
+          <img src="${currentUser ? (currentProfile?.avatar_url || 'https://via.placeholder.com/48') : 'https://via.placeholder.com/48'}" class="avatar-feed">
           <div class="flex-1">
             <div class="bg-black border border-stash rounded-2xl p-3 text-gray-500">
               What's happening?
@@ -443,11 +445,10 @@
     const fullHtml = composeHtml + feedHtml;
 
     if (reset) mainContent.innerHTML = fullHtml;
-    else mainContent.insertAdjacentHTML('beforeend', feedHtml); // compose area only once
+    else mainContent.insertAdjacentHTML('beforeend', feedHtml);
 
     attachPostListeners();
 
-    // Infinite scroll
     if (scrollListener) window.removeEventListener('scroll', scrollListener);
     scrollListener = () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
@@ -460,7 +461,7 @@
   function renderPost(post) {
     const escapedName = escapeHTML(post.profile?.display_name || 'User');
     const escapedUsername = escapeHTML(post.profile?.username);
-    const escapedAvatar = escapeHTML(post.profile?.avatar_url || 'https://via.placeholder.com/40');
+    const escapedAvatar = escapeHTML(post.profile?.avatar_url || 'https://via.placeholder.com/48');
     const escapedContent = escapeHTML(post.content || '');
     const likeIcon = post.liked_by_me ? 'fa-solid' : 'fa-regular';
     const retweetIcon = post.retweeted_by_me ? 'fa-solid' : 'fa-regular';
@@ -468,7 +469,6 @@
     const canEdit = currentUser && (currentUser.id === post.user_id || currentProfile?.is_admin);
     const editButton = canEdit ? `<button class="edit-post-btn text-gray-500 hover:text-stash-blue ml-2" data-post-id="${post.id}"><i class="fa-regular fa-pen-to-square"></i></button>` : '';
 
-    // Poll rendering
     let pollHtml = '';
     if (post.poll_options) {
       const options = JSON.parse(post.poll_options);
@@ -482,7 +482,7 @@
     return `
       <div class="p-4 border-b border-stash hover:bg-[#080808] transition" data-post-id="${post.id}">
         <div class="flex gap-3">
-          <img src="${escapedAvatar}" class="w-12 h-12 rounded-full object-cover cursor-pointer" onclick="goToProfile('${post.user_id}')">
+          <img src="${escapedAvatar}" class="avatar-feed cursor-pointer" onclick="goToProfile('${post.user_id}')">
           <div class="flex-1">
             <div class="flex items-center gap-1 flex-wrap">
               <span class="font-bold">${escapedName}</span>
@@ -608,7 +608,7 @@
   });
 
   async function createNotification(targetUserId, type, postId = null) {
-    if (targetUserId === currentUser.id) return; // don't notify self
+    if (targetUserId === currentUser.id) return;
     await _supabase.from('notifications').insert({
       user_id: targetUserId,
       type,
@@ -639,7 +639,7 @@
       .from('posts')
       .update({ content, image_url })
       .eq('id', postId)
-      .eq('user_id', currentUser.id); // only own posts
+      .eq('user_id', currentUser.id);
     if (!error) {
       closeModal('edit-post-modal');
       loadHomeFeed(true);
@@ -733,7 +733,7 @@
         const conv = conversations[id];
         const lastMsg = conv.messages[0];
         html += `<div class="border-b border-stash py-3 flex gap-3">
-          <img src="${conv.user?.avatar_url || 'https://via.placeholder.com/40'}" class="w-10 h-10 rounded-full">
+          <img src="${conv.user?.avatar_url || 'https://via.placeholder.com/40'}" class="w-10 h-10 rounded-full object-cover">
           <div>
             <p class="font-bold">${conv.user?.display_name || conv.user?.username}</p>
             <p class="text-sm text-gray-500">${escapeHTML(lastMsg.content.substring(0,50))}</p>
@@ -758,7 +758,6 @@
     mainContent.innerHTML = html;
   }
 
-  // Search functionality
   document.getElementById('search-input')?.addEventListener('keyup', async (e) => {
     if (e.key === 'Enter') {
       const query = e.target.value.trim();
@@ -790,7 +789,7 @@
     let html = `
       <div class="relative">
         <div class="h-32 bg-stash-dark"></div>
-        <img src="${profile?.avatar_url || 'https://via.placeholder.com/100'}" class="w-24 h-24 rounded-full border-4 border-black absolute -bottom-12 left-4">
+        <img src="${profile?.avatar_url || 'https://via.placeholder.com/96'}" class="avatar-profile absolute -bottom-12 left-4">
         <div class="pt-16 p-4">
           <div class="flex justify-between">
             <div>
@@ -815,13 +814,10 @@
   async function followUser(userId) {
     if (!currentUser) return;
     await _supabase.from('follows').insert({ follower_id: currentUser.id, following_id: userId });
-    // Use RPC to increment counts
     const { error } = await _supabase.rpc('increment_follow_counts', { follower: currentUser.id, following: userId });
     if (error) console.warn('RPC error, updating manually', error);
     else {
-      // Also update local profile counts optimistically
       if (currentProfile) currentProfile.following_count++;
-      // Reload profile if on that page
       if (currentPage === 'profile') loadProfile(userId);
     }
     createNotification(userId, 'follow');
@@ -890,7 +886,6 @@
   };
 
   async function loadAdminDashboard() {
-    // Stats
     const { count: users } = await _supabase.from('profiles').select('*', { count: 'exact', head: true });
     const { count: postsCount } = await _supabase.from('posts').select('*', { count: 'exact', head: true });
     const { data: viewsData } = await _supabase.from('posts').select('views');
@@ -940,7 +935,6 @@
     loadAdminAds();
     initAdminChart();
 
-    // Re-attach tab listeners (remove old ones first)
     document.querySelectorAll('.admin-tab').forEach(btn => {
       btn.removeEventListener('click', adminTabHandler);
       btn.addEventListener('click', adminTabHandler);
@@ -958,7 +952,6 @@
     document.querySelector(`.tab-pane[data-pane="${btn.dataset.tab}"]`).classList.remove('hidden');
   }
 
-  // Admin: Users
   async function loadAdminUsers() {
     const { data: users } = await _supabase.from('profiles').select('id, username, display_name, is_admin').order('created_at');
     const list = document.getElementById('admin-users-list');
@@ -988,7 +981,6 @@
     loadAdminUsers();
   };
 
-  // Admin: Posts - fixed join syntax
   async function loadAdminPosts() {
     const { data: posts } = await _supabase
       .from('posts')
@@ -1014,7 +1006,6 @@
     loadHomeFeed(true);
   };
 
-  // Admin: Trends
   async function loadAdminTrends() {
     const { data } = await _supabase.from('trends').select('*').order('post_count', { ascending: false });
     const list = document.getElementById('admin-trends-list');
@@ -1041,7 +1032,6 @@
     loadAdminTrends();
   };
 
-  // Admin: Ads
   async function loadAdminAds() {
     const { data } = await _supabase.from('ads').select('*').order('created_at');
     const list = document.getElementById('admin-ads-list');
@@ -1070,7 +1060,6 @@
   };
 
   function openAdModal(id, ad) {
-    // Remove any existing ad modal
     const existing = document.querySelector('.ad-modal-instance');
     if (existing) existing.remove();
 
@@ -1123,7 +1112,6 @@
     loadAdminAds();
   };
 
-  // Admin: Analytics Chart
   function initAdminChart() {
     const ctx = document.getElementById('admin-chart')?.getContext('2d');
     if (!ctx) return;
@@ -1155,7 +1143,7 @@
       list.innerHTML = (users || []).map(u => `
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <img src="${u.avatar_url || 'https://via.placeholder.com/32'}" class="w-8 h-8 rounded-full">
+            <img src="${u.avatar_url || 'https://via.placeholder.com/32'}" class="w-8 h-8 rounded-full object-cover">
             <span class="text-sm">${u.display_name || u.username}</span>
           </div>
           <button onclick="followUser('${u.id}')" class="bg-stash-blue text-white text-xs px-3 py-1 rounded-full">Follow</button>
@@ -1170,7 +1158,6 @@
   window.goToProfile = (id) => { currentPage = 'profile'; loadProfile(id); };
   window.followUser = followUser;
 
-  // Load right sidebar data
   loadTrends();
   loadWhoToFollow();
 </script>
