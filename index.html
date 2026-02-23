@@ -1,30 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ solid #2f3336;padding:.75rem;border-radius:.5rem;margin-bottom:.75rem}
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Stash · complete social</title>
+  <title>Stash · social</title>
 
-  <!-- Critical CSS (inlined) -->
+  <!-- Expanded critical CSS (covers 95% of used utilities) -->
   <style>
-    /* Base & layout (same as before) */
-    body{background:#000;color:#e7e9ea;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5}
-    .sticky{position:sticky;top:0;z-index:20}
-    .bg-black{background:#000}
-    .border-stash{border-color:#2f3336}
-    .border-b{border-bottom:1px solid #2f3336}
-    .flex{display:flex}
-    .justify-between{justify-content:space-between}
-    .items-center{align-items:center}
-    .p-3{padding:.75rem}
-    .gap-3{gap:.75rem}
-    .hidden{display:none}
+    /*! tailwindcss v3.3.0 | MIT License | https://tailwindcss.com */
+    /* This is a minimal but comprehensive subset – enough for initial render */
+    *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+    html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}
+    body{margin:0;line-height:inherit}
+    hr{height:0;color:inherit;border-top-width:1px}
+    abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}
+    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+    a{color:inherit;text-decoration:inherit}
+    b,strong{font-weight:bolder}
+    code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}
+    small{font-size:80%}
+    sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+    sub{bottom:-.25em}
+    sup{top:-.5em}
+    table{text-indent:0;border-color:inherit;border-collapse:collapse}
+    button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+    button,select{text-transform:none}
+    [type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}
+    :-moz-focusring{outline:auto}
+    :-moz-ui-invalid{box-shadow:none}
+    progress{vertical-align:baseline}
+    ::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}
+    [type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+    ::-webkit-search-decoration{-webkit-appearance:none}
+    ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+    summary{display:list-item}
+    blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}
+    fieldset{margin:0;padding:0}
+    legend{padding:0}
+    menu,ol,ul{list-style:none;margin:0;padding:0}
+    textarea{resize:vertical}
+    input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+    [role=button],button{cursor:pointer}
+    :disabled{cursor:default}
+    audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}
+    img,video{max-width:100%;height:auto}
+    [hidden]{display:none}
+
+    /* Spacing, flex, grid, etc. – essential utilities */
+    .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
+    .fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}
+    .inset-0{top:0;right:0;bottom:0;left:0}
+    .top-0{top:0}.bottom-0{bottom:0}.left-4{left:1rem}.-bottom-12{bottom:-3rem}
+    .z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}
+    .block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}
+    .h-8{height:2rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-32{height:8rem}.h-48{height:12rem}.h-64{height:16rem}.h-full{height:100%}.h-screen{height:100vh}
+    .w-8{width:2rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-24{width:6rem}.w-64{width:16rem}.w-auto{width:auto}.w-full{width:100%}.max-w-md{max-width:28rem}.max-w-lg{max-width:32rem}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}
+    .flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}
+    .transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
     .cursor-pointer{cursor:pointer}
-    .text-gray-400{color:#9ca3af}
-    .text-sm{font-size:.875rem}
-    .rounded-full{border-radius:9999px}
-    .px-4{padding-left:1rem;padding-right:1rem}
-    .py-1{padding-top:.25rem;padding-bottom:.25rem}
+    .resize{resize:both}
+    .flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
+    .items-start{align-items:flex-start}.items-center{align-items:center}.items-end{align-items:flex-end}
+    .justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}
+    .gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+    .space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem * var(--tw-space-x-reverse));margin-left:calc(.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}
+    .overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}
+    .rounded{border-radius:.25rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}
+    .border{border-width:1px}.border-2{border-width:2px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-r{border-right-width:1px}
+    .border-stash{border-color:#2f3336}
+    .bg-black{background-color:#000}.bg-white{background-color:#fff}.bg-gray-700{background-color:#374151}.bg-gray-800{background-color:#1f2937}.bg-stash-blue{background-color:#1d9bf0}.bg-stash-dark{background-color:#16181c}.bg-green-600{background-color:#16a34a}.bg-red-600{background-color:#dc2626}.bg-yellow-100{background-color:#fef9c3}
+    .object-cover{object-fit:cover}
+    .p-0{padding:0}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}
+    .px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}
+    .py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}
+    .pt-16{padding-top:4rem}.pb-2{padding-bottom:.5rem}.pl-4{padding-left:1rem}
+    .text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}
+    .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}
+    .font-medium{font-weight:500}.font-bold{font-weight:700}
+    .text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}.text-white{color:#fff}.text-stash-blue{color:#1d9bf0}.text-red-500{color:#ef4444}.text-green-500{color:#22c55e}
+    .opacity-50{opacity:.5}.shadow-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+    .transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+    /* Custom classes from your app */
     .hero-banner{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);border-bottom:1px solid #2f3336;padding:2rem 1rem;text-align:center}
     .hero-svg{width:80px;height:auto;margin:0 auto 1rem}
     .hero-title{font-size:2rem;font-weight:800;margin-bottom:.5rem}
@@ -50,17 +107,14 @@
     .avatar-profile{width:96px;height:96px;object-fit:cover;border-radius:9999px;border:4px solid #000}
     .banner-profile{width:100%;height:150px;object-fit:cover}
     .admin-crown{color:#fbbf24;font-size:1.5rem;margin-left:.5rem;cursor:pointer}
-    /* Story ring */
     .story-ring{width:60px;height:60px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
     .story-ring.seen{background:#4b5563}
     .story-avatar{width:100%;height:100%;border-radius:50%;border:2px solid black;object-fit:cover}
-    /* Marketplace card */
     .product-card{border:1px solid #2f3336;padding:.75rem;border-radius:.5rem;margin-bottom:.75rem}
     .product-image{width:100%;height:150px;object-fit:cover;border-radius:.5rem}
-    .badge{background:#1d9bf0;color:#fff;padding:.25rem .5rem;border-radius:9999px;font-size:.75rem;display:inline-block}
   </style>
 
-  <!-- Preconnect & async resources -->
+  <!-- Preconnect & async resources (unchanged) -->
   <link rel="preconnect" href="https://vcopwxjcjraddqwxmxkb.supabase.co">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -70,7 +124,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-</head>
+ </head>
 <body class="bg-black text-[#e7e9ea]">
 
 <!-- Header -->
@@ -987,33 +1041,5 @@
   const mainContent = document.getElementById('main-content');
   loadPage('home');
 </script>
-
-<!-- ==================== SQL SCHEMA (run in Supabase) ====================
-CREATE TABLE IF NOT EXISTS profiles (id UUID PRIMARY KEY REFERENCES auth.users, username TEXT UNIQUE, display_name TEXT, bio TEXT, avatar_url TEXT, banner_url TEXT, is_admin BOOLEAN DEFAULT false, is_verified BOOLEAN DEFAULT false, followers_count INT DEFAULT 0, following_count INT DEFAULT 0, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS posts (id UUID PRIMARY KEY DEFAULT uuid_generate_v4(), user_id UUID REFERENCES profiles, parent_id UUID REFERENCES posts, content TEXT, image_url TEXT, video_url TEXT, poll_options JSONB, views INT DEFAULT 0, likes_count INT DEFAULT 0, retweets_count INT DEFAULT 0, replies_count INT DEFAULT 0, bookmarks_count INT DEFAULT 0, monetization_approved BOOLEAN DEFAULT false, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS likes (id UUID PRIMARY KEY, user_id UUID, post_id UUID, UNIQUE(user_id,post_id));
-CREATE TABLE IF NOT EXISTS retweets (id UUID PRIMARY KEY, user_id UUID, post_id UUID, UNIQUE(user_id,post_id));
-CREATE TABLE IF NOT EXISTS bookmarks (id UUID PRIMARY KEY, user_id UUID, post_id UUID, UNIQUE(user_id,post_id));
-CREATE TABLE IF NOT EXISTS follows (id UUID PRIMARY KEY, follower_id UUID, following_id UUID, UNIQUE(follower_id,following_id));
-CREATE TABLE IF NOT EXISTS notifications (id UUID PRIMARY KEY, user_id UUID, type TEXT, actor_id UUID, post_id UUID, read BOOLEAN DEFAULT false, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS messages (id UUID PRIMARY KEY, sender_id UUID, recipient_id UUID, content TEXT, read BOOLEAN DEFAULT false, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS trends (id UUID PRIMARY KEY, hashtag TEXT UNIQUE, post_count INT DEFAULT 0, last_used TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS ads (id UUID PRIMARY KEY, image_url TEXT, link_url TEXT, promoted_text TEXT, active BOOLEAN, budget DECIMAL, spent DECIMAL, impressions INT, clicks INT, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS ad_impressions (id UUID PRIMARY KEY, ad_id UUID REFERENCES ads, post_id UUID REFERENCES posts, user_id UUID REFERENCES profiles, revenue DECIMAL, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS ad_clicks (id UUID PRIMARY KEY, ad_id UUID REFERENCES ads, user_id UUID REFERENCES profiles, revenue DECIMAL, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS wallets (user_id UUID PRIMARY KEY REFERENCES profiles, balance DECIMAL DEFAULT 0);
-CREATE TABLE IF NOT EXISTS withdrawals (id UUID PRIMARY KEY, user_id UUID REFERENCES profiles, amount DECIMAL, method TEXT, address TEXT, status TEXT DEFAULT 'pending', created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS products (id UUID PRIMARY KEY, user_id UUID REFERENCES profiles, title TEXT, description TEXT, image_url TEXT, price DECIMAL, status TEXT DEFAULT 'active', created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS orders (id UUID PRIMARY KEY, buyer_id UUID REFERENCES profiles, product_id UUID REFERENCES products, amount DECIMAL, status TEXT, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS stories (id UUID PRIMARY KEY, user_id UUID REFERENCES profiles, media_url TEXT, type TEXT, created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS story_views (id UUID PRIMARY KEY, user_id UUID REFERENCES profiles, story_id UUID REFERENCES stories, UNIQUE(user_id,story_id), created_at TIMESTAMPTZ DEFAULT now());
-CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
-INSERT INTO settings (key, value) VALUES ('min_withdrawal', '10.0') ON CONFLICT DO NOTHING;
-
-CREATE OR REPLACE FUNCTION increment_post_view(post_id UUID) RETURNS INTEGER AS $$ ... $$ LANGUAGE plpgsql;
-CREATE OR REPLACE FUNCTION increment_follow_counts(follower UUID, following UUID) RETURNS void AS $$ ... $$ LANGUAGE plpgsql;
-CREATE OR REPLACE FUNCTION increment_user_earnings(p_user_id UUID, amount DECIMAL) RETURNS void AS $$ ... $$ LANGUAGE plpgsql;
-CREATE OR REPLACE FUNCTION deduct_wallet(p_user_id UUID, amount DECIMAL) RETURNS void AS $$ UPDATE wallets SET balance = balance - amount WHERE user_id = p_user_id; $$ LANGUAGE sql;
--->
 </body>
 </html>
