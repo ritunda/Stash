@@ -886,9 +886,29 @@
 
   // ==================== SETTINGS (with banner) ====================
   async function loadSettings() {
-    if (!currentUser) return;
-    const { data: settings } = await _supabase.from('user_settings').select('*').eq('user_id', currentUser.id).single();
-    mainContent.innerHTML = `
+  if (!currentUser) {
+    goToPage('home');
+    return;
+  }
+  try {
+    // Fetch user settings, create default if not exists
+    let { data: settings, error } = await _supabase
+      .from('user_settings')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .maybeSingle();
+
+    if (error) throw error;
+    if (!settings) {
+      // Create default settings row
+      const { error: insertError } = await _supabase
+        .from('user_settings')
+        .insert({ user_id: currentUser.id });
+      if (insertError) throw insertError;
+      settings = { email_notifications: true };
+    }
+
+    const html = `
       <div class="p-4 max-w-lg">
         <h2 class="text-2xl font-bold mb-4">Settings</h2>
         <form id="settings-form" class="space-y-4">
@@ -908,9 +928,9 @@
             <label class="block text-sm">Banner URL</label>
             <input type="url" id="settings-banner" value="${escapeHTML(currentProfile?.banner_url || '')}" class="w-full bg-black border border-stash rounded-lg p-3">
           </div>
-          <div>
-            <label class="block text-sm">Email notifications</label>
-            <input type="checkbox" id="settings-email" ${settings?.email_notifications ? 'checked' : ''} class="mt-1">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="settings-email" ${settings?.email_notifications ? 'checked' : ''} class="w-4 h-4">
+            <label for="settings-email" class="text-sm">Email notifications</label>
           </div>
           <button type="submit" class="bg-stash-blue text-white px-6 py-2 rounded-full">Save</button>
         </form>
@@ -918,7 +938,12 @@
         <button onclick="changePassword()" class="bg-gray-700 text-white px-6 py-2 rounded-full">Change password</button>
       </div>
     `;
+    mainContent.innerHTML = html;
     document.getElementById('settings-form').addEventListener('submit', saveSettings);
+  } catch (err) {
+    console.error('Settings error:', err);
+    mainContent.innerHTML = '<div class="p-4 text-red-500">Failed to load settings. Please try again.</div>';
+  }
   }
 
   async function saveSettings(e) {
