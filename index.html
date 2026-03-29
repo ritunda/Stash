@@ -1,1045 +1,1740 @@
 <!DOCTYPE html>
 <html lang="en">
- solid #2f3336;padding:.75rem;border-radius:.5rem;margin-bottom:.75rem}
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Stash · social</title>
-
-  <!-- Expanded critical CSS (covers 95% of used utilities) -->
-  <style>
-    /*! tailwindcss v3.3.0 | MIT License | https://tailwindcss.com */
-    /* This is a minimal but comprehensive subset – enough for initial render */
-    *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
-    html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}
-    body{margin:0;line-height:inherit}
-    hr{height:0;color:inherit;border-top-width:1px}
-    abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}
-    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
-    a{color:inherit;text-decoration:inherit}
-    b,strong{font-weight:bolder}
-    code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}
-    small{font-size:80%}
-    sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
-    sub{bottom:-.25em}
-    sup{top:-.5em}
-    table{text-indent:0;border-color:inherit;border-collapse:collapse}
-    button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
-    button,select{text-transform:none}
-    [type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}
-    :-moz-focusring{outline:auto}
-    :-moz-ui-invalid{box-shadow:none}
-    progress{vertical-align:baseline}
-    ::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}
-    [type=search]{-webkit-appearance:textfield;outline-offset:-2px}
-    ::-webkit-search-decoration{-webkit-appearance:none}
-    ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
-    summary{display:list-item}
-    blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}
-    fieldset{margin:0;padding:0}
-    legend{padding:0}
-    menu,ol,ul{list-style:none;margin:0;padding:0}
-    textarea{resize:vertical}
-    input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
-    [role=button],button{cursor:pointer}
-    :disabled{cursor:default}
-    audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}
-    img,video{max-width:100%;height:auto}
-    [hidden]{display:none}
-
-    /* Spacing, flex, grid, etc. – essential utilities */
-    .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
-    .fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}
-    .inset-0{top:0;right:0;bottom:0;left:0}
-    .top-0{top:0}.bottom-0{bottom:0}.left-4{left:1rem}.-bottom-12{bottom:-3rem}
-    .z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}
-    .block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}
-    .h-8{height:2rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-32{height:8rem}.h-48{height:12rem}.h-64{height:16rem}.h-full{height:100%}.h-screen{height:100vh}
-    .w-8{width:2rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-24{width:6rem}.w-64{width:16rem}.w-auto{width:auto}.w-full{width:100%}.max-w-md{max-width:28rem}.max-w-lg{max-width:32rem}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}
-    .flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}
-    .transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
-    .cursor-pointer{cursor:pointer}
-    .resize{resize:both}
-    .flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
-    .items-start{align-items:flex-start}.items-center{align-items:center}.items-end{align-items:flex-end}
-    .justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}
-    .gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
-    .space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem * var(--tw-space-x-reverse));margin-left:calc(.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}
-    .overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}
-    .rounded{border-radius:.25rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}
-    .border{border-width:1px}.border-2{border-width:2px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-r{border-right-width:1px}
-    .border-stash{border-color:#2f3336}
-    .bg-black{background-color:#000}.bg-white{background-color:#fff}.bg-gray-700{background-color:#374151}.bg-gray-800{background-color:#1f2937}.bg-stash-blue{background-color:#1d9bf0}.bg-stash-dark{background-color:#16181c}.bg-green-600{background-color:#16a34a}.bg-red-600{background-color:#dc2626}.bg-yellow-100{background-color:#fef9c3}
-    .object-cover{object-fit:cover}
-    .p-0{padding:0}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}
-    .px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}
-    .py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}
-    .pt-16{padding-top:4rem}.pb-2{padding-bottom:.5rem}.pl-4{padding-left:1rem}
-    .text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}
-    .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}
-    .font-medium{font-weight:500}.font-bold{font-weight:700}
-    .text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}.text-white{color:#fff}.text-stash-blue{color:#1d9bf0}.text-red-500{color:#ef4444}.text-green-500{color:#22c55e}
-    .opacity-50{opacity:.5}.shadow-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
-    .transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-    /* Custom classes from your app */
-    .hero-banner{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);border-bottom:1px solid #2f3336;padding:2rem 1rem;text-align:center}
-    .hero-svg{width:80px;height:auto;margin:0 auto 1rem}
-    .hero-title{font-size:2rem;font-weight:800;margin-bottom:.5rem}
-    .hero-subtitle{font-size:1.1rem;color:#9ca3af;max-width:600px;margin:0 auto 1.5rem}
-    .hero-button{background:#1d9bf0;color:#fff;padding:.75rem 2rem;border-radius:9999px;font-weight:700;display:inline-block;text-decoration:none}
-    .hero-button:hover{background:#1a8cd8}
-    .compose-box{cursor:pointer;border-bottom:1px solid #2f3336;padding:1rem}
-    .compose-box:hover{background:#080808}
-    .avatar-feed{width:48px;height:48px;object-fit:cover;border-radius:9999px}
-    .skeleton{background:linear-gradient(90deg,#2f3336 25%,#3a3f44 50%,#2f3336 75%);background-size:200% 100%;animation:loading 1.5s infinite;border-radius:.25rem}
-    @keyframes loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:1px solid #2f3336;display:flex;justify-content:space-around;padding:.5rem 0;z-index:10}
-    .bottom-nav a{color:#6b7280;font-size:1.5rem;text-decoration:none}
-    .bottom-nav a.active{color:#1d9bf0}
-    .main-with-nav{padding-bottom:5rem}
-    .modal-overlay{background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center}
-    .modal-content{width:100%;height:100%;background:#000;border:none;border-radius:0}
-    @media(min-width:1024px){.modal-content{width:90%;max-width:600px;height:auto;border-radius:1rem;border:1px solid #2f3336}}
-    #new-posts-banner{transition:transform .3s,opacity .3s;transform:translateY(-100%);opacity:0;position:fixed;top:60px;left:50%;transform:translateX(-50%) translateY(-100%);background:#1d9bf0;color:#fff;padding:.5rem 1rem;border-radius:9999px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.5);cursor:pointer;z-index:30}
-    #new-posts-banner.show{transform:translateX(-50%) translateY(0);opacity:1}
-    .hashtag,.mention{color:#1d9bf0;cursor:pointer}
-    .hashtag:hover,.mention:hover{text-decoration:underline}
-    .avatar-profile{width:96px;height:96px;object-fit:cover;border-radius:9999px;border:4px solid #000}
-    .banner-profile{width:100%;height:150px;object-fit:cover}
-    .admin-crown{color:#fbbf24;font-size:1.5rem;margin-left:.5rem;cursor:pointer}
-    .story-ring{width:60px;height:60px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
-    .story-ring.seen{background:#4b5563}
-    .story-avatar{width:100%;height:100%;border-radius:50%;border:2px solid black;object-fit:cover}
-    .product-card{border:1px solid #2f3336;padding:.75rem;border-radius:.5rem;margin-bottom:.75rem}
-    .product-image{width:100%;height:150px;object-fit:cover;border-radius:.5rem}
-  </style>
-
-  <!-- Preconnect & async resources (unchanged) -->
-  <link rel="preconnect" href="https://vcopwxjcjraddqwxmxkb.supabase.co">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.tailwindcss.com"></noscript>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
- </head>
-<body class="bg-black text-[#e7e9ea]">
-
-<!-- Header -->
-<div class="sticky top-0 bg-black border-b border-stash z-20 p-3 flex justify-between items-center">
-  <svg width="100" height="40" viewBox="0 0 500 200" onclick="goToPage('home')" class="h-8 w-auto cursor-pointer">
-    <defs><linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
-    <path d="M25 100 C 30 40, 80 30, 110 55 C 140 80, 120 130, 70 130 C 30 130, 20 90, 40 70 C 55 55, 80 60, 90 75" stroke="url(#headerGrad)" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <polygon points="145,65 165,40 180,65" fill="#10B981"/>
-    <text x="190" y="95" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="500" fill="#e7e9ea">stash</text>
-  </svg>
-  <div class="flex items-center gap-3">
-    <i id="admin-crown-header" class="fa-solid fa-crown admin-crown hidden" onclick="openAdminDashboard()"></i>
-    <button id="logout-btn-header" class="text-gray-400 hover:text-white hidden" onclick="logout()"><i class="fa-solid fa-sign-out-alt"></i></button>
-    <button id="login-btn-header" class="bg-stash-blue text-white px-4 py-1 rounded-full text-sm" onclick="showAuthModal()">Log in</button>
-  </div>
-</div>
-
-<!-- New posts banner -->
-<div id="new-posts-banner" onclick="loadHomeFeed(true); this.classList.remove('show')"><i class="fa-solid fa-arrow-up mr-2"></i>New posts available</div>
-
-<!-- Main content -->
-<main id="main-content" class="main-with-nav p-0"></main>
-
-<!-- Bottom navigation (extra icons) -->
-<div class="bottom-nav">
-  <a href="#" class="nav-link" data-page="home"><i class="fa-solid fa-house"></i></a>
-  <a href="#" class="nav-link" data-page="explore"><i class="fa-solid fa-hashtag"></i></a>
-  <a href="#" class="nav-link" data-page="stories"><i class="fa-regular fa-circle-play"></i></a>
-  <a href="#" class="nav-link" data-page="marketplace"><i class="fa-solid fa-store"></i></a>
-  <a href="#" class="nav-link" data-page="notifications"><i class="fa-regular fa-bell"></i></a>
-  <a href="#" class="nav-link" data-page="profile"><i class="fa-regular fa-user"></i></a>
-</div>
-
-<!-- ========== MODALS (all previously defined, plus new ones) ========== -->
-
-<!-- Compose Modal -->
-<div id="compose-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold">Compose post</h2>
-      <button onclick="closeModal('compose-modal')" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NursePrep Pro – Complete Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #0f172a;
+            transition: background 0.2s, color 0.2s;
+            padding: 20px;
+        }
+        body.dark {
+            background: #0a0c10;
+            color: #e2e8f0;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        /* Header */
+        .minimal-header {
+            background: white;
+            padding: 10px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 20px;
+            border-radius: 60px;
+        }
+        body.dark .minimal-header {
+            background: #1e293b;
+            border-bottom-color: #334155;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .logo-mini { display: flex; align-items: center; gap: 10px; }
+        .logo-icon-mini {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-icon-mini i { font-size: 18px; color: white; }
+        .logo-text-mini h1 { font-size: 16px; font-weight: 700; color: #0891b2; }
+        body.dark .logo-text-mini h1 { color: #22d3ee; }
+        .logo-text-mini p { font-size: 10px; color: #64748b; }
+        .header-actions-mini { display: flex; gap: 8px; }
+        .icon-btn-mini {
+            width: 36px; height: 36px; border-radius: 18px;
+            background: #f1f5f9; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: #1e293b;
+        }
+        body.dark .icon-btn-mini {
+            background: #334155;
+            color: #e2e8f0;
+        }
+        /* Tabs */
+        .tab-bar {
+            display: flex;
+            gap: 6px;
+            background: white;
+            padding: 6px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        body.dark .tab-bar {
+            background: #1e293b;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 10px 0;
+            border: none;
+            background: transparent;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            background: #0891b2;
+            color: white;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        /* Shared components */
+        .filter-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        body.dark .filter-bar {
+            background: #1e293b;
+        }
+        .filter-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .filter-select, .shelf-select {
+            padding: 10px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            background: white;
+            font-size: 12px;
+        }
+        body.dark .filter-select, body.dark .shelf-select {
+            background: #0f172a;
+            border-color: #334155;
+            color: white;
+        }
+        .search-mini {
+            width: 100%;
+            padding: 10px 12px 10px 36px;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 13px;
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%2394a3b8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>') no-repeat 12px center;
+            background-size: 16px;
+        }
+        .stats-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .stat-mini {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+        }
+        body.dark .stat-mini {
+            background: #1e293b;
+        }
+        .stat-num {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0891b2;
+        }
+        .block-section {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        body.dark .block-section {
+            background: #1e293b;
+        }
+        .block-header {
+            background: #f1f5f9;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        body.dark .block-header {
+            background: #334155;
+        }
+        .block-title {
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            gap: 8px;
+        }
+        .paper-count {
+            background: #0891b2;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 10px;
+        }
+        .block-content {
+            display: none;
+            padding: 12px;
+        }
+        .block-content.show {
+            display: block;
+        }
+        .paper-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        body.dark .paper-item {
+            background: #0f172a;
+        }
+        .paper-header-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .paper-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #0891b2;
+        }
+        .paper-intake {
+            font-size: 10px;
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .view-btn, .delete-paper-btn {
+            background: transparent;
+            border: 1px solid #0891b2;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .delete-paper-btn {
+            border-color: #ef4444;
+            color: #ef4444;
+            margin-left: 8px;
+        }
+        .add-form, .import-export-card, .ad-settings-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        body.dark .add-form, body.dark .import-export-card, body.dark .ad-settings-card {
+            background: #1e293b;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        body.dark .form-group input, body.dark .form-group select, body.dark .form-group textarea {
+            background: #0f172a;
+            border-color: #334155;
+            color: white;
+        }
+        .submit-btn, .action-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            border: none;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .action-btn-outline {
+            background: transparent;
+            border: 1px solid #0891b2;
+            color: #0891b2;
+            margin-top: 0;
+        }
+        .section-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        body.dark .section-card {
+            background: #0f172a;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid #0891b2;
+            padding-left: 12px;
+        }
+        .add-question-btn {
+            background: #e2e8f0;
+            border: none;
+            padding: 10px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 12px 0 8px;
+        }
+        .question-entry {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        body.dark .question-entry {
+            background: #1e293b;
+        }
+        .remove-q {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .success-msg {
+            background: #dcfce7;
+            color: #16a34a;
+            padding: 12px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            display: none;
+            font-size: 13px;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 28px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        body.dark .modal-content {
+            background: #1e293b;
+        }
+        .part-group {
+            margin-bottom: 28px;
+        }
+        .part-head {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+        .single-question {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .ad-place {
+            background: #f1f5f9;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .ad-place img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+        .question-text-full {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .reveal-q {
+            background: #f1f5f9;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0891b2;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .answer-full {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 16px;
+            margin-top: 12px;
+            display: none;
+            border-left: 4px solid #0891b2;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .answer-full.show {
+            display: block;
+        }
+        .progress-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .progress-btn-sm {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .progress-attempted { background: #fef3c7; color: #d97706; }
+        .progress-reviewed { background: #dcfce7; color: #16a34a; }
+        .progress-mastered { background: #dbeafe; color: #2563eb; }
+        .close-modal, .delete-modal-btn, .confirm-btn, .cancel-btn {
+            background: #e2e8f0;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 16px;
+            cursor: pointer;
+        }
+        .delete-modal-btn { background: #ef4444; color: white; }
+        .confirm-btn { background: #0891b2; color: white; }
+        .cancel-btn { background: #e2e8f0; color: #333; margin-top: 8px; }
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e2e8f0;
+            border-top-color: #0891b2;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 12px;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+        }
+        body.dark .book-card {
+            background: #1e293b;
+        }
+        .book-cover {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #e2e8f0;
+        }
+        .book-info {
+            flex: 1;
+        }
+        .book-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .book-author {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        .book-summary {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        .book-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .download-btn {
+            background: #0891b2;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        body.dark .pagination button {
+            background: #1e293b;
+            border-color: #334155;
+            color: white;
+        }
+        .pagination button.active {
+            background: #0891b2;
+            color: white;
+            border-color: #0891b2;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 20px;
+            margin: 12px 0;
+            display: none;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 8px;
+            background: #0891b2;
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+        .warning-msg {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #92400e;
+        }
+        .flex-row-btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .ad-entry {
+            margin-bottom: 12px;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+        }
+        /* Simulation */
+        .simulation-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .sim-header {
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            color: white;
+            padding: 20px;
+        }
+        .progress-container {
+            padding: 16px 20px 0;
+        }
+        .progress-bar-wrapper {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #0891b2;
+            width: 0%;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .step-counter {
+            text-align: right;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+        .sim-content {
+            padding: 20px;
+        }
+        .current-question {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .options {
+            margin: 16px 0;
+        }
+        .option {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .option input {
+            margin-top: 2px;
+        }
+        .feedback {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            display: none;
+        }
+        .feedback.correct {
+            background: #dcfce7;
+            color: #16a34a;
+            border-left: 4px solid #16a34a;
+        }
+        .feedback.incorrect {
+            background: #fee2e2;
+            color: #dc2626;
+            border-left: 4px solid #dc2626;
+        }
+        .sim-button {
+            background: #0891b2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .sim-button.reset {
+            background: #64748b;
+            margin-left: 12px;
+        }
+        .completion-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .completion-message i {
+            font-size: 48px;
+            color: #16a34a;
+            margin-bottom: 16px;
+        }
+        .sim-editor {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .help-modal-content { max-width: 600px; }
+        .help-section { margin-bottom: 20px; }
+        .help-section h4 { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+<div class="minimal-header">
+    <div class="header-row">
+        <div class="logo-mini">
+            <div class="logo-icon-mini"><i class="fas fa-stethoscope"></i></div>
+            <div class="logo-text-mini">
+                <h1>NursePrep Pro</h1>
+                <p>Papers | Books | Simulations | Progress</p>
+            </div>
+        </div>
+        <div class="header-actions-mini">
+            <button class="icon-btn-mini" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+            <button class="icon-btn-mini" onclick="shareApp()"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn-mini" onclick="showHelpModal()"><i class="fas fa-question"></i></button>
+            <button class="icon-btn-mini" id="adIconBtn" onclick="goToAdsTab()"><i class="fas fa-ad"></i></button>
+        </div>
     </div>
-    <form id="compose-form">
-      <textarea id="compose-content" rows="4" placeholder="What's happening?" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required></textarea>
-      <input type="url" id="compose-image" placeholder="Image URL (optional)" class="w-full bg-black border border-stash rounded-lg p-3 mt-2 text-white">
-      <input type="url" id="compose-video" placeholder="Video URL (YouTube/Vimeo)" class="w-full bg-black border border-stash rounded-lg p-3 mt-2 text-white">
-      <div class="flex items-center gap-2 mt-3">
-        <input type="checkbox" id="compose-poll" class="w-4 h-4">
-        <label for="compose-poll" class="text-sm">Add poll (Home/Draw/Away)</label>
-      </div>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold mt-4 w-full">Post</button>
-    </form>
-  </div>
 </div>
 
-<!-- Edit Post Modal -->
-<div id="edit-post-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">Edit post</h2>
-    <form id="edit-post-form">
-      <input type="hidden" id="edit-post-id">
-      <textarea id="edit-post-content" rows="4" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required></textarea>
-      <input type="url" id="edit-post-image" placeholder="Image URL" class="w-full bg-black border border-stash rounded-lg p-3 mt-2 text-white">
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-2 px-4 font-bold mt-3">Update</button>
-    </form>
-  </div>
-</div>
-
-<!-- Reply Modal -->
-<div id="reply-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">Reply</h2>
-    <form id="reply-form">
-      <input type="hidden" id="reply-post-id">
-      <textarea id="reply-content" rows="3" placeholder="Post your reply" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required></textarea>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-2 px-4 font-bold mt-3">Reply</button>
-    </form>
-  </div>
-</div>
-
-<!-- Withdraw Modal -->
-<div id="withdraw-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">Withdraw Earnings</h2>
-    <form id="withdraw-form">
-      <p class="mb-4 text-gray-400">Your balance: <span id="withdraw-balance">$0.00</span> (min withdrawal $<span id="min-withdraw-amount">10.00</span>)</p>
-      <input type="number" id="withdraw-amount" placeholder="Amount" step="0.01" min="0.01" class="w-full bg-black border border-stash rounded-lg p-3 text-white mb-3" required>
-      <select id="withdraw-method" class="w-full bg-black border border-stash rounded-lg p-3 text-white mb-3" required>
-        <option value="">Select method</option>
-        <option value="paypal">PayPal</option>
-        <option value="crypto">Cryptocurrency</option>
-      </select>
-      <input type="text" id="withdraw-address" placeholder="PayPal email or crypto address" class="w-full bg-black border border-stash rounded-lg p-3 text-white mb-3" required>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold w-full">Request Withdrawal</button>
-    </form>
-  </div>
-</div>
-
-<!-- Admin Dashboard Modal -->
-<div id="admin-modal" class="fixed inset-0 modal-overlay hidden z-50 overflow-y-auto p-0">
-  <div class="bg-black min-h-screen p-4 w-full">
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl font-bold">Admin</h1>
-      <button onclick="closeModal('admin-modal')" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
+<div class="container">
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="papers"><i class="fas fa-book"></i> Papers</button>
+        <button class="tab-btn" data-tab="books"><i class="fas fa-book-open"></i> Books</button>
+        <button class="tab-btn" data-tab="simulation"><i class="fas fa-heartbeat"></i> Simulation</button>
+        <button class="tab-btn" data-tab="add"><i class="fas fa-plus-circle"></i> Add</button>
+        <button class="tab-btn" data-tab="ads"><i class="fas fa-ad"></i> Ads</button>
+        <button class="tab-btn" data-tab="trash"><i class="fas fa-trash-alt"></i> Trash</button>
+        <button class="tab-btn" data-tab="progress"><i class="fas fa-chart-line"></i> Progress</button>
     </div>
-    <div class="border-b border-stash mb-4 overflow-x-auto">
-      <nav class="flex gap-4">
-        <button class="admin-tab active text-stash-blue border-b-2 border-stash-blue pb-1" data-tab="dashboard">Dashboard</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="users">Users</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="posts">Posts</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="campaigns">Campaigns</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="products">Products</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="withdrawals">Withdrawals</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="analytics">Analytics</button>
-        <button class="admin-tab text-gray-500 hover:text-white pb-1" data-tab="settings">Settings</button>
-      </nav>
+
+    <!-- Papers Tab -->
+    <div id="papersTab" class="tab-pane active">
+        <div class="filter-bar">
+            <div class="filter-row">
+                <select id="blockFilter" class="filter-select" onchange="filterPapers()">
+                    <option value="all">All Blocks</option>
+                    <option value="block1">Block 1</option><option value="block2">Block 2</option><option value="block3">Block 3</option>
+                    <option value="block4">Block 4</option><option value="block5">Block 5</option><option value="block6">Block 6</option>
+                    <option value="supplementary">Supplementary</option>
+                </select>
+                <select id="intakeFilter" class="filter-select" onchange="filterPapers()">
+                    <option value="all">All Intakes</option><option value="march">March</option><option value="september">September</option>
+                </select>
+                <select id="yearFilter" class="filter-select" onchange="filterPapers()">
+                    <option value="all">All Years</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option>
+                </select>
+            </div>
+            <input type="text" id="searchInput" class="search-mini" placeholder="Search questions...">
+        </div>
+        <div id="papersGrid"></div>
+        <div id="paginationControls" class="pagination"></div>
     </div>
-    <div id="admin-panes"></div>
-  </div>
+
+    <!-- Books Tab -->
+    <div id="booksTab" class="tab-pane">
+        <div class="filter-bar">
+            <input type="text" id="bookSearch" class="search-mini" placeholder="Search books...">
+            <div class="filter-row" style="margin-top: 10px;">
+                <select id="shelfFilter" class="filter-select">
+                    <option value="all">All Shelves</option>
+                    <option value="to-read">To Read</option>
+                    <option value="reading">Reading</option>
+                    <option value="read">Read</option>
+                </select>
+            </div>
+        </div>
+        <div id="booksGrid"></div>
+    </div>
+
+    <!-- Simulation Tab -->
+    <div id="simulationTab" class="tab-pane">
+        <div id="simulationContainer"></div>
+    </div>
+
+    <!-- Add Tab (admin only) -->
+    <div id="addTab" class="tab-pane">
+        <div id="addProtectedContent" style="display: none;">
+            <div class="add-form">
+                <h3>Add Nursing Paper</h3>
+                <div class="form-row" style="display: flex; gap: 12px;">
+                    <div class="form-group"><label>Block</label><select id="newBlock"><option value="block1">Block 1</option><option value="block2">Block 2</option><option value="block3">Block 3</option><option value="block4">Block 4</option><option value="block5">Block 5</option><option value="block6">Block 6</option><option value="supplementary">Supplementary</option></select></div>
+                    <div class="form-group"><label>Paper No.</label><input type="text" id="newPaperNo" placeholder="Paper 1"></div>
+                </div>
+                <div class="form-row" style="display: flex; gap: 12px;">
+                    <div class="form-group"><label>Intake</label><select id="newIntake"><option value="march">March</option><option value="september">September</option></select></div>
+                    <div class="form-group"><label>Year</label><input type="text" id="newYear" placeholder="2024"></div>
+                </div>
+                <div class="form-group"><label>School Name (optional)</label><input type="text" id="newSchool"></div>
+                <div class="form-group"><label>Exam Title</label><input type="text" id="newExamTitle"></div>
+                <div class="form-row" style="display: flex; gap: 12px;">
+                    <div class="form-group"><label>Exam Date</label><input type="text" id="newExamDate"></div>
+                    <div class="form-group"><label>Exam Time</label><input type="text" id="newExamTime"></div>
+                </div>
+                <div class="form-group"><label>Instructions</label><textarea id="newInstructions" rows="2"></textarea></div>
+
+                <div class="section-card"><div class="section-title"><i class="fas fa-check-circle"></i> Part I: MCQs</div><div id="mcqQuestionsContainer"></div><button class="add-question-btn" onclick="addQuestionField('mcq')">+ Add MCQ</button></div>
+                <div class="section-card"><div class="section-title"><i class="fas fa-question-circle"></i> Part II: SAQs</div><div id="saqQuestionsContainer"></div><button class="add-question-btn" onclick="addQuestionField('saq')">+ Add SAQ</button></div>
+                <div class="section-card"><div class="section-title"><i class="fas fa-pen-fancy"></i> Part III: LAQs</div><div id="laqQuestionsContainer"></div><button class="add-question-btn" onclick="addQuestionField('laq')">+ Add LAQ</button></div>
+                <button class="submit-btn" onclick="savePaper()"><i class="fas fa-save"></i> Save Paper</button>
+            </div>
+
+            <div class="import-export-card">
+                <h3>Add New Book</h3>
+                <div class="form-group"><label>Title</label><input type="text" id="bookTitle"></div>
+                <div class="form-group"><label>Author</label><input type="text" id="bookAuthor"></div>
+                <div class="form-group"><label>Cover Image URL</label><input type="text" id="bookCover"></div>
+                <div class="form-group"><label>Download Link (optional)</label><input type="text" id="bookDownload"></div>
+                <div class="form-group"><label>Summary</label><textarea id="bookSummary" rows="3"></textarea></div>
+                <button class="submit-btn" onclick="addBook()"><i class="fas fa-save"></i> Add Book</button>
+            </div>
+
+            <div class="import-export-card">
+                <h3>Create New Simulation</h3>
+                <div class="form-group"><label>Simulation Title</label><input type="text" id="simTitle"></div>
+                <div class="form-group"><label>Description</label><textarea id="simDescription" rows="2"></textarea></div>
+                <button class="submit-btn" onclick="createSimulation()"><i class="fas fa-save"></i> Create Simulation</button>
+            </div>
+
+            <div class="import-export-card">
+                <h3>Bulk Import / Export</h3>
+                <div class="flex-row-btns">
+                    <button class="action-btn action-btn-outline" onclick="exportAllData()"><i class="fas fa-download"></i> Export JSON</button>
+                    <button class="action-btn action-btn-outline" onclick="document.getElementById('importFileInput').click()"><i class="fas fa-upload"></i> Import JSON</button>
+                </div>
+                <input type="file" id="importFileInput" accept=".json,.txt" style="display: none;" onchange="handleImportFile(this.files[0])">
+                <div id="importStatusMsg" class="success-msg"></div>
+                <div id="progressBarContainer" class="progress-bar-container"><div id="progressBar" class="progress-bar"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ads Tab (admin only) -->
+    <div id="adsTab" class="tab-pane">
+        <div id="adsProtectedContent" style="display: none;">
+            <div class="ad-settings-card">
+                <h4>Ad Management</h4>
+                <div class="form-group"><label><input type="checkbox" id="showAdIcon"> Show ad icon in header</label></div>
+                <div class="form-group"><label>Ad Placement</label><select id="adPlacement"><option value="part">After each part</option><option value="frequency">After every X questions</option></select></div>
+                <div class="form-group" id="adFrequencyGroup"><label>Frequency (questions)</label><input type="number" id="adFrequency" min="1" max="20" value="3"></div>
+                <div id="adsListContainer"></div>
+                <button class="action-btn" onclick="addAd()"><i class="fas fa-plus"></i> Add Ad</button>
+                <button class="action-btn" onclick="saveAdSettings()"><i class="fas fa-save"></i> Save All Ads</button>
+                <div id="adsSaveMsg" class="success-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trash Tab (admin only) -->
+    <div id="trashTab" class="tab-pane"><div id="trashGrid"></div></div>
+
+    <!-- Progress Tab -->
+    <div id="progressTab" class="tab-pane">
+        <div class="stats-bar">
+            <div class="stat-mini"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total Qs</div></div>
+            <div class="stat-mini"><div class="stat-num" id="statAttempted">0</div><div class="stat-label">Attempted</div></div>
+            <div class="stat-mini"><div class="stat-num" id="statMastered">0</div><div class="stat-label">Mastered</div></div>
+        </div>
+        <div id="progressList"></div>
+    </div>
 </div>
 
-<!-- Auth Modal -->
-<div id="auth-modal" class="fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4 hidden">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-md p-6">
-    <h2 class="text-2xl font-bold mb-4 text-center">Welcome to Stash</h2>
-    <form id="login-form" class="space-y-3">
-      <input type="email" id="login-email" placeholder="Email" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required>
-      <input type="password" id="login-password" placeholder="Password" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold w-full">Log in</button>
-    </form>
-    <p class="text-center text-gray-500 my-2">or</p>
-    <form id="signup-form" class="space-y-3">
-      <input type="email" id="signup-email" placeholder="Email" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required>
-      <input type="password" id="signup-password" placeholder="Password" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required>
-      <input type="text" id="signup-username" placeholder="Username" class="w-full bg-black border border-stash rounded-lg p-3 text-white" required>
-      <button type="submit" class="bg-green-600 text-white rounded-full py-3 px-6 font-bold w-full">Create account</button>
-    </form>
-  </div>
+<!-- Modals -->
+<div id="questionModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <div id="modalMeta" style="font-size: 12px; margin-bottom: 16px;"></div>
+        <div id="modalQuestions"></div>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+            <button class="delete-modal-btn" onclick="deleteCurrentPaper()"><i class="fas fa-trash-alt"></i> Delete Paper</button>
+            <button class="close-modal" onclick="closeQuestionModal()">Close</button>
+        </div>
+    </div>
 </div>
 
-<!-- Campaign creation modal -->
-<div id="campaign-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">Create Ad Campaign</h2>
-    <form id="campaign-form">
-      <input type="text" id="campaign-name" placeholder="Campaign name" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <input type="url" id="campaign-image" placeholder="Image URL" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <input type="url" id="campaign-link" placeholder="Destination URL" class="w-full bg-black border border-stash rounded-lg p-3 mb-3">
-      <select id="campaign-type" class="w-full bg-black border border-stash rounded-lg p-3 mb-3">
-        <option value="cpc">CPC (pay per click)</option>
-        <option value="cpm">CPM (pay per 1000 views)</option>
-      </select>
-      <input type="number" id="campaign-bid" placeholder="Bid amount (per click/1000 views)" step="0.01" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <input type="number" id="campaign-budget" placeholder="Total budget" step="0.01" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold w-full">Create Campaign (pay from wallet)</button>
-    </form>
-  </div>
+<div id="helpModal" class="modal">
+    <div class="modal-content help-modal-content">
+        <h3>Help & Support</h3>
+        <div class="help-section"><h4>📚 Books</h4><p>Browse books, change shelf status (to-read/reading/read). Admin can add/delete books and add download links.</p></div>
+        <div class="help-section"><h4>📖 Nursing Papers</h4><p>View past papers grouped by block. Click "View Questions" to practice. Reveal answers and mark progress.</p></div>
+        <div class="help-section"><h4>🩺 Clinical Simulation</h4><p>Work through realistic patient scenarios step by step. Answer correctly to proceed. Track your results.</p></div>
+        <div class="help-section"><h4>🔒 Admin Access</h4><p>To add/edit papers, books, or ads, click the Add/Ads tab and enter the admin password (default: admin123). Contact your administrator for the password.</p></div>
+        <div class="help-section"><h4>🔄 Syncing</h4><p>Your progress and shelf are automatically saved to the cloud. Use the same browser to keep your data.</p></div>
+        <button class="close-modal" onclick="closeHelpModal()">Close</button>
+    </div>
 </div>
 
-<!-- Product listing modal -->
-<div id="product-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">List Product</h2>
-    <form id="product-form">
-      <input type="text" id="product-title" placeholder="Title" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <textarea id="product-description" rows="3" placeholder="Description" class="w-full bg-black border border-stash rounded-lg p-3 mb-3"></textarea>
-      <input type="url" id="product-image" placeholder="Image URL" class="w-full bg-black border border-stash rounded-lg p-3 mb-3">
-      <input type="number" id="product-price" placeholder="Price" step="0.01" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold w-full">List Product</button>
-    </form>
-  </div>
+<div id="errorModal" class="modal">
+    <div class="modal-content" style="max-width: 400px;">
+        <h3><i class="fas fa-exclamation-triangle"></i> Error</h3>
+        <p id="errorMessage" style="margin: 16px 0;"></p>
+        <button class="close-modal" onclick="closeErrorModal()">OK</button>
+    </div>
 </div>
 
-<!-- Story creation modal -->
-<div id="story-modal" class="fixed inset-0 modal-overlay hidden items-center justify-center z-50 p-0 lg:p-4">
-  <div class="bg-black border border-stash rounded-2xl w-full max-w-lg p-6 modal-content">
-    <h2 class="text-2xl font-bold mb-4">Add Story</h2>
-    <form id="story-form">
-      <input type="url" id="story-media" placeholder="Image or Video URL" class="w-full bg-black border border-stash rounded-lg p-3 mb-3" required>
-      <select id="story-type" class="w-full bg-black border border-stash rounded-lg p-3 mb-3">
-        <option value="image">Image</option>
-        <option value="video">Video</option>
-      </select>
-      <button type="submit" class="bg-stash-blue text-white rounded-full py-3 px-6 font-bold w-full">Post Story (expires in 24h)</button>
-    </form>
-  </div>
+<div id="adminLoginModal" class="modal">
+    <div class="modal-content" style="max-width: 350px;">
+        <h3>Admin Login</h3>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="adminPasswordInput" placeholder="Enter admin password">
+        </div>
+        <button class="confirm-btn" onclick="submitAdminPassword()">Login</button>
+        <button class="cancel-btn" onclick="closeAdminLoginModal()">Cancel</button>
+    </div>
 </div>
 
-<script defer>
-  // ==================== CONFIG & STATE ====================
-  const SUPABASE_URL = 'https://vcopwxjcjraddqwxmxkb.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_9b2BZuqv8hms1kXt9hBXnQ_GBCzLmSn'; // REPLACE
-  const { createClient } = supabase;
-  const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+<script>
+    // Supabase config
+    const SUPABASE_URL = "YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+    let supabase, currentUser = null;
 
-  let currentUser = null;
-  let currentProfile = null;
-  let currentPage = 'home';
-  let posts = [];
-  let stories = [];
-  let products = [];
-  let campaigns = [];
-  let pageOffset = 0;
-  const POSTS_PER_PAGE = 10;
-  let loading = false;
-  let hasMore = true;
-  let viewedPosts = new Set();
-  let notificationsInterval = null;
-  let lastPostTimestamp = null;
-  let pollInterval = null;
-  let scrollHandler = null;
-  let minWithdrawal = 10.0; // default, fetched from settings
+    // Global state
+    let papersDatabase = [], deletedPapersDatabase = [], userProgress = {};
+    let booksList = [], userBooks = {};
+    let adsList = [], showAdIcon = true, adPlacement = 'part', adFrequency = 3;
+    let currentPaperId = null;
+    let currentPage = 1, papersPerPage = 20, filteredPapers = [];
+    let searchDebounceTimer = null;
+    let isAdmin = false;
 
-  // ==================== DOM HELPERS ====================
-  function escapeHTML(str) {
-    if (!str) return '';
-    return String(str).replace(/[&<>"]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      if (m === '"') return '&quot;';
-      return m;
-    });
-  }
+    // Question storage for add form
+    let mcqQuestions = [], saqQuestions = [], laqQuestions = [];
 
-  function timeAgo(dateStr) {
-    const date = new Date(dateStr);
-    const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-    if (seconds < 60) return 'just now';
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return `${minutes}m`;
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours}h`;
-    const days = Math.floor(hours / 24);
-    return `${days}d`;
-  }
+    // Simulation state
+    let currentSimulationId = 1; // load the default simulation
+    let simulationSteps = [];
+    let currentStepIndex = 0, userAnswers = [], simulationCompleted = false;
+    let simulationUserResultId = null;
 
-  function closeModal(id) {
-    document.getElementById(id).classList.add('hidden');
-  }
-
-  function showAuthModal() {
-    document.getElementById('auth-modal').classList.remove('hidden');
-  }
-
-  function validateVideoUrl(url) {
-    if (!url) return null;
-    const ytRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
-    const vimeoRegex = /^(https?:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)/;
-    if (ytRegex.test(url)) {
-      const match = url.match(/(?:v=|\/)([a-zA-Z0-9_-]+)/);
-      return `https://www.youtube.com/embed/${match[1]}`;
-    } else if (vimeoRegex.test(url)) {
-      const match = url.match(/([0-9]+)$/);
-      return `https://player.vimeo.com/video/${match[1]}`;
-    }
-    return null;
-  }
-
-  function linkify(text) {
-    if (!text) return '';
-    let escaped = escapeHTML(text);
-    escaped = escaped.replace(/@([a-zA-Z0-9_]+)/g, '<span class="mention" onclick="goToProfileByUsername(\'$1\')">@$1</span>');
-    escaped = escaped.replace(/#([a-zA-Z0-9_]+)/g, '<span class="hashtag" onclick="searchHashtag(\'$1\')">#$1</span>');
-    return escaped;
-  }
-
-  // ==================== AUTH ====================
-  async function fetchCurrentProfile() {
-    if (!currentUser) { currentProfile = null; return; }
-    const { data, error } = await _supabase.from('profiles').select('*').eq('id', currentUser.id).single();
-    if (!error) currentProfile = data;
-  }
-
-  async function fetchSettings() {
-    const { data } = await _supabase.from('settings').select('value').eq('key', 'min_withdrawal').single();
-    if (data) minWithdrawal = parseFloat(data.value);
-  }
-
-  async function updateAuthUI(user) {
-    await fetchCurrentProfile();
-    await fetchSettings();
-    const authModal = document.getElementById('auth-modal');
-    const loginBtn = document.getElementById('login-btn-header');
-    const logoutBtn = document.getElementById('logout-btn-header');
-    const crown = document.getElementById('admin-crown-header');
-
-    if (user) {
-      authModal.classList.add('hidden');
-      loginBtn.classList.add('hidden');
-      logoutBtn.classList.remove('hidden');
-      if (currentProfile?.is_admin) crown.classList.remove('hidden');
-      else crown.classList.add('hidden');
-      startPolling();
-      // Ensure wallet exists
-      const { data: wallet } = await _supabase.from('wallets').select('balance').eq('user_id', user.id).maybeSingle();
-      if (!wallet) await _supabase.from('wallets').insert({ user_id: user.id, balance: 0 });
-    } else {
-      loginBtn.classList.remove('hidden');
-      logoutBtn.classList.add('hidden');
-      crown.classList.add('hidden');
-      if (notificationsInterval) clearInterval(notificationsInterval);
-      if (pollInterval) clearInterval(pollInterval);
-    }
-    loadPage(currentPage);
-  }
-
-  _supabase.auth.getSession().then(({ data: { session } }) => {
-    currentUser = session?.user ?? null;
-    updateAuthUI(currentUser);
-  });
-  _supabase.auth.onAuthStateChange((event, session) => {
-    currentUser = session?.user ?? null;
-    updateAuthUI(currentUser);
-  });
-
-  document.getElementById('login-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-    const { error } = await _supabase.auth.signInWithPassword({ email, password });
-    if (error) alert('Login error: ' + error.message);
-  });
-
-  document.getElementById('signup-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-    const username = document.getElementById('signup-username').value;
-    const { error } = await _supabase.auth.signUp({
-      email,
-      password,
-      options: { data: { username } }
-    });
-    if (error) alert('Signup error: ' + error.message);
-    else alert('Check your email for confirmation!');
-  });
-
-  window.logout = async () => {
-    await _supabase.auth.signOut();
-    goToPage('home');
-  };
-
-  // ==================== ROUTING ====================
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const page = link.dataset.page;
-      goToPage(page);
-    });
-  });
-
-  function goToPage(page) {
-    currentPage = page;
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    document.querySelector(`.nav-link[data-page="${page}"]`)?.classList.add('active');
-    loadPage(page);
-  }
-
-  async function loadPage(page) {
-    mainContent.innerHTML = getSkeleton(page);
-    if (page === 'home') await loadHomeFeed(true);
-    else if (page === 'explore') await loadExplore();
-    else if (page === 'stories') await loadStoriesPage();
-    else if (page === 'marketplace') await loadMarketplace();
-    else if (page === 'notifications') await loadNotifications();
-    else if (page === 'profile') await loadProfile(currentUser?.id);
-  }
-
-  function getSkeleton(page) {
-    if (page === 'home') {
-      let html = '';
-      for (let i = 0; i < 5; i++) {
-        html += `<div class="p-4 border-b border-stash"><div class="flex gap-3"><div class="skeleton w-12 h-12 rounded-full"></div><div class="flex-1 space-y-2"><div class="skeleton h-4 w-24"></div><div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-2/3"></div></div></div></div>`;
-      }
-      return html;
-    }
-    return '<div class="p-4 text-center">Loading...</div>';
-  }
-
-  // ==================== POLLING FOR NEW POSTS ====================
-  function startPolling() {
-    if (pollInterval) clearInterval(pollInterval);
-    pollInterval = setInterval(checkForNewPosts, 30000);
-    if (notificationsInterval) clearInterval(notificationsInterval);
-    notificationsInterval = setInterval(() => {
-      if (currentPage === 'notifications') loadNotifications();
-    }, 30000);
-  }
-  async function checkForNewPosts() {
-    if (!lastPostTimestamp) return;
-    const { data, error } = await _supabase.from('posts').select('created_at').order('created_at', { ascending: false }).limit(1);
-    if (error || !data.length) return;
-    const latest = new Date(data[0].created_at).getTime();
-    if (latest > lastPostTimestamp) document.getElementById('new-posts-banner').classList.add('show');
-  }
-
-  // ==================== HOME FEED ====================
-  async function loadHomeFeed(reset = true) {
-    if (reset) { pageOffset = 0; hasMore = true; }
-    if (!hasMore || loading) return;
-    loading = true;
-
-    const { data: fetchedPosts, error } = await _supabase
-      .from('posts')
-      .select('*')
-      .is('parent_id', null)
-      .order('created_at', { ascending: false })
-      .range(pageOffset, pageOffset + POSTS_PER_PAGE - 1);
-    if (error) { console.error(error); loading = false; return; }
-
-    if (fetchedPosts.length > 0) {
-      const latest = new Date(fetchedPosts[0].created_at).getTime();
-      if (!lastPostTimestamp) lastPostTimestamp = latest;
-      else if (latest > lastPostTimestamp) lastPostTimestamp = latest;
+    // Helper: escapeHtml
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, m => m==='&'?'&amp;':m==='<'?'&lt;':'&gt;');
     }
 
-    if (reset) posts = fetchedPosts;
-    else posts = [...posts, ...fetchedPosts];
-    pageOffset += fetchedPosts.length;
-    hasMore = fetchedPosts.length === POSTS_PER_PAGE;
+    // Error modal
+    function showErrorModal(msg) {
+        document.getElementById('errorMessage').innerText = msg;
+        document.getElementById('errorModal').classList.add('show');
+    }
+    function closeErrorModal() { document.getElementById('errorModal').classList.remove('show'); }
 
-    setTimeout(() => {
-      enrichPosts(posts.slice(reset ? 0 : posts.length - fetchedPosts.length)).then(() => {
-        renderHomeFeed(reset);
-      });
-    }, 0);
-    loading = false;
-  }
+    // Admin login
+    function showAdminLoginModal() { document.getElementById('adminLoginModal').classList.add('show'); }
+    function closeAdminLoginModal() { document.getElementById('adminLoginModal').classList.remove('show'); }
+    async function submitAdminPassword() {
+        const pass = document.getElementById('adminPasswordInput').value;
+        const { data, error } = await supabase.from('app_settings').select('setting_value').eq('setting_key', 'admin_password').single();
+        if (!error && data && data.setting_value === pass) {
+            isAdmin = true;
+            document.getElementById('addProtectedContent').style.display = 'block';
+            document.getElementById('adsProtectedContent').style.display = 'block';
+            closeAdminLoginModal();
+            showErrorModal("Admin access granted.");
+            renderTrash();
+        } else {
+            showErrorModal("Incorrect password.");
+            closeAdminLoginModal();
+        }
+    }
 
-  async function enrichPosts(postList) {
-    const userIds = [...new Set(postList.map(p => p.user_id))];
-    const { data: profiles } = await _supabase.from('profiles').select('id, username, display_name, avatar_url, is_verified').in('id', userIds);
-    const profileMap = Object.fromEntries((profiles || []).map(p => [p.id, p]));
+    // Help modal
+    function showHelpModal() { document.getElementById('helpModal').classList.add('show'); }
+    function closeHelpModal() { document.getElementById('helpModal').classList.remove('show'); }
 
-    for (let post of postList) {
-      post.profile = profileMap[post.user_id] || { username: 'anonymous', display_name: 'Anonymous', avatar_url: null };
-      const { count: likes } = await _supabase.from('likes').select('*', { count: 'exact', head: true }).eq('post_id', post.id);
-      post.likes_count = likes || 0;
-      const { count: retweets } = await _supabase.from('retweets').select('*', { count: 'exact', head: true }).eq('post_id', post.id);
-      post.retweets_count = retweets || 0;
-      const { count: replies } = await _supabase.from('posts').select('*', { count: 'exact', head: true }).eq('parent_id', post.id);
-      post.replies_count = replies || 0;
-      if (currentUser) {
-        const { data: userLike } = await _supabase.from('likes').select('id').eq('post_id', post.id).eq('user_id', currentUser.id).maybeSingle();
-        post.liked_by_me = !!userLike;
-        const { data: userRetweet } = await _supabase.from('retweets').select('id').eq('post_id', post.id).eq('user_id', currentUser.id).maybeSingle();
-        post.retweeted_by_me = !!userRetweet;
-        const { data: userBookmark } = await _supabase.from('bookmarks').select('id').eq('post_id', post.id).eq('user_id', currentUser.id).maybeSingle();
-        post.bookmarked_by_me = !!userBookmark;
-      }
-      if (!viewedPosts.has(post.id)) {
-        viewedPosts.add(post.id);
-        await _supabase.rpc('increment_post_view', { post_id: post.id });
-        // Simulate ad impression (10% chance)
-        if (Math.random() < 0.1 && currentUser && post.user_id !== currentUser.id) {
-          const { data: ads } = await _supabase.from('ad_campaigns').select('id').eq('active', true);
-          if (ads && ads.length > 0) {
-            const ad = ads[Math.floor(Math.random() * ads.length)];
-            await _supabase.from('ad_impressions').insert({
-              ad_id: ad.id,
-              post_id: post.id,
-              user_id: currentUser.id,
-              revenue: 0.0001
+    // Dark mode
+    let darkMode = localStorage.getItem('darkMode') === 'true';
+    function toggleDarkMode() {
+        darkMode = !darkMode;
+        localStorage.setItem('darkMode', darkMode);
+        document.body.classList.toggle('dark', darkMode);
+    }
+
+    function shareApp() {
+        if (navigator.share) navigator.share({ title: 'NursePrep Pro', url: window.location.href });
+        else alert('Share not supported');
+    }
+
+    function goToAdsTab() { document.querySelector('.tab-btn[data-tab="ads"]').click(); }
+
+    // Authentication
+    async function authenticate() {
+        const { data, error } = await supabase.auth.signInAnonymously();
+        if (error) { showErrorModal("Authentication failed: " + error.message); return null; }
+        return data.user;
+    }
+
+    // Load all data
+    async function loadAllData() {
+        await loadPapersAndProgress();
+        await loadBooks();
+        await loadAdSettings();
+        await loadSimulation();
+        updateProgressStats();
+    }
+
+    // Papers
+    async function loadPapersAndProgress() {
+        try {
+            const { data: papers, error: pErr } = await supabase.from('nursing_papers').select('*').is('deleted_at', null).order('id');
+            if (pErr) throw pErr;
+            const { data: deleted, error: dErr } = await supabase.from('nursing_papers').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false });
+            if (dErr) throw dErr;
+            const { data: questions, error: qErr } = await supabase.from('nursing_questions').select('*').order('id');
+            if (qErr) throw qErr;
+            const { data: progress, error: prErr } = await supabase.from('nursing_progress').select('question_id, status').eq('user_id', currentUser.id);
+            if (prErr) throw prErr;
+            userProgress = {};
+            if (progress) progress.forEach(p => { userProgress[p.question_id] = p.status; });
+            const papersMap = {};
+            papers.forEach(p => {
+                papersMap[p.id] = {
+                    id: p.id, block: p.block, blockName: getBlockName(p.block), paperNo: p.paper_no, intake: p.intake, year: p.year,
+                    title: p.title, exam_title: p.exam_title, exam_date: p.exam_date, exam_time: p.exam_time,
+                    instructions: p.instructions, school_name: p.school_name, questions: []
+                };
             });
-            await _supabase.rpc('increment_user_earnings', { p_user_id: post.user_id, amount: 0.0001 });
-          }
+            questions.forEach(q => {
+                if (papersMap[q.paper_id]) papersMap[q.paper_id].questions.push({ id: q.id, text: q.question_text, answer: q.answer, part: q.part || 1 });
+            });
+            papersDatabase = Object.values(papersMap);
+            const deletedMap = {};
+            deleted.forEach(p => {
+                deletedMap[p.id] = { id: p.id, block: p.block, blockName: getBlockName(p.block), paperNo: p.paper_no, intake: p.intake, year: p.year, title: p.title, exam_title: p.exam_title, deleted_at: p.deleted_at, questions: [] };
+            });
+            questions.forEach(q => { if (deletedMap[q.paper_id]) deletedMap[q.paper_id].questions.push({ id: q.id, text: q.question_text, part: q.part || 1 }); });
+            deletedPapersDatabase = Object.values(deletedMap);
+            filterPapersAndRender();
+            renderTrash();
+            updateProgressStats();
+        } catch (err) { console.error(err); showErrorModal("Error loading papers."); }
+    }
+
+    function getBlockName(block) {
+        const n = { block1:'Block 1', block2:'Block 2', block3:'Block 3', block4:'Block 4', block5:'Block 5', block6:'Block 6', supplementary:'Supplementary' };
+        return n[block] || block;
+    }
+
+    function filterPapers() {
+        if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(() => { currentPage = 1; filterPapersAndRender(); }, 300);
+    }
+
+    function filterPapersAndRender() {
+        const bf = document.getElementById('blockFilter').value, iF = document.getElementById('intakeFilter').value, yF = document.getElementById('yearFilter').value, search = document.getElementById('searchInput').value.toLowerCase();
+        filteredPapers = papersDatabase.filter(p =>
+            (bf === 'all' || p.block === bf) && (iF === 'all' || p.intake === iF) && (yF === 'all' || p.year === yF) &&
+            (!search || p.paperNo.toLowerCase().includes(search) || p.questions.some(q => q.text.toLowerCase().includes(search)))
+        );
+        renderPapers();
+    }
+
+    function renderPapers() {
+        const start = (currentPage - 1) * papersPerPage, end = start + papersPerPage;
+        const pagePapers = filteredPapers.slice(start, end);
+        const grouped = {};
+        pagePapers.forEach(p => { if (!grouped[p.block]) grouped[p.block] = []; grouped[p.block].push(p); });
+        const icons = { block1:'📘', block2:'📗', block3:'📕', block4:'📙', block5:'📒', block6:'📓', supplementary:'📚' };
+        const names = { block1:'Block 1', block2:'Block 2', block3:'Block 3', block4:'Block 4', block5:'Block 5', block6:'Block 6', supplementary:'Supplementary' };
+        const container = document.getElementById('papersGrid');
+        if (pagePapers.length === 0) { container.innerHTML = '<div class="block-section"><div style="padding:40px;text-align:center;">No papers found</div></div>'; } else {
+            container.innerHTML = Object.keys(grouped).map(block => `
+                <div class="block-section">
+                    <div class="block-header" onclick="toggleBlock('${block}')">
+                        <div class="block-title"><span>${icons[block] || '📚'}</span> ${names[block] || block}</div>
+                        <span class="paper-count">${grouped[block].length} papers</span>
+                    </div>
+                    <div id="block-${block}" class="block-content">
+                        ${grouped[block].map(paper => `
+                            <div class="paper-item">
+                                <div class="paper-header-row"><span class="paper-name">${escapeHtml(paper.paperNo)}</span><span class="paper-intake">${paper.intake==='march'?'March':'September'} ${paper.year}</span></div>
+                                <div style="font-size:11px;">📝 ${paper.questions.length} questions</div>
+                                ${paper.exam_title ? `<div style="font-size:10px; margin-top:4px; color:#0891b2;">${escapeHtml(paper.exam_title)}</div>` : ''}
+                                <div style="display:flex; gap:8px; margin-top:10px;">
+                                    <button class="view-btn" onclick="openPaperQuestions(${paper.id})">View Questions →</button>
+                                    ${isAdmin ? `<button class="delete-paper-btn" onclick="softDeletePaper(${paper.id})"><i class="fas fa-trash-alt"></i> Delete</button>` : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
         }
-      }
-    }
-  }
-
-  function renderHomeFeed(reset) {
-    const heroHtml = !currentUser ? `
-      <div class="hero-banner">
-        <svg class="hero-svg" width="80" height="80" viewBox="0 0 500 200">
-          <defs><linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
-          <path d="M25 100 C 30 40, 80 30, 110 55 C 140 80, 120 130, 70 130 C 30 130, 20 90, 40 70 C 55 55, 80 60, 90 75" stroke="url(#heroGrad)" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <polygon points="145,65 165,40 180,65" fill="#10B981"/>
-          <text x="190" y="95" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="500" fill="#e7e9ea">stash</text>
-        </svg>
-        <h1 class="hero-title">Your Voice, Your Earnings</h1>
-        <p class="hero-subtitle">Join thousands earning from their content. Get paid for ad views. Connect, share, and grow.</p>
-        <div class="flex justify-center gap-2 text-sm text-gray-400 mb-4">
-          <span>✅ 10k+ active users</span>
-          <span>💰 $50k+ paid out</span>
-        </div>
-        <a href="#" onclick="showAuthModal(); return false;" class="hero-button">Join Stash Today</a>
-      </div>
-    ` : '';
-
-    const composeHtml = currentUser ? `
-      <div class="p-4 border-b border-stash compose-box" onclick="document.getElementById('compose-modal').classList.remove('hidden')">
-        <div class="flex gap-3">
-          <img src="${currentProfile?.avatar_url || 'https://via.placeholder.com/48'}" class="avatar-feed">
-          <div class="flex-1">
-            <div class="bg-black border border-stash rounded-2xl p-3 text-gray-500">What's happening?</div>
-            <div class="flex gap-4 mt-2 text-gray-500">
-              <i class="fa-regular fa-image"></i>
-              <i class="fa-regular fa-video"></i>
-              <i class="fa-regular fa-chart-bar"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    ` : '';
-
-    let feedHtml = '';
-    posts.forEach(post => { feedHtml += renderPost(post); });
-    // Insert active ad campaigns into feed (after every 3 posts)
-    const adCandidates = campaigns.filter(c => c.active && c.spent < c.budget);
-    let adIndex = 0;
-    const postArray = posts.map(p => renderPost(p));
-    const finalPosts = [];
-    for (let i = 0; i < postArray.length; i++) {
-      finalPosts.push(postArray[i]);
-      if (i % 3 === 2 && adCandidates.length > 0) {
-        const ad = adCandidates[adIndex % adCandidates.length];
-        finalPosts.push(renderAd(ad));
-        adIndex++;
-      }
-    }
-    feedHtml = finalPosts.join('');
-    const fullHtml = heroHtml + composeHtml + feedHtml;
-
-    if (reset) mainContent.innerHTML = fullHtml;
-    else mainContent.insertAdjacentHTML('beforeend', feedHtml);
-
-    attachPostListeners();
-    setupInfiniteScroll();
-  }
-
-  function renderAd(ad) {
-    return `<div class="p-4 border-b border-stash bg-stash-dark"><a href="${escapeHTML(ad.link_url||'#')}" target="_blank" onclick="trackAdClick('${ad.id}')"><img src="${escapeHTML(ad.image_url)}" class="w-full rounded-xl"><p class="text-xs text-gray-400 mt-1">${escapeHTML(ad.name)} · ${ad.type === 'cpc' ? 'Cost per click' : 'Cost per view'}</p></a></div>`;
-  }
-
-  window.trackAdClick = async (adId) => {
-    if (!currentUser) return;
-    await _supabase.from('ad_clicks').insert({ ad_id: adId, user_id: currentUser.id, revenue: 0.0005 }); // example CPC revenue
-    await _supabase.rpc('increment_user_earnings', { p_user_id: currentUser.id, amount: 0.0005 });
-  };
-
-  function renderPost(post) {
-    const escapedName = escapeHTML(post.profile?.display_name || 'User');
-    const escapedUsername = escapeHTML(post.profile?.username);
-    const escapedAvatar = escapeHTML(post.profile?.avatar_url || 'https://via.placeholder.com/48');
-    const linkedContent = linkify(post.content || '');
-    const likeIcon = post.liked_by_me ? 'fa-solid' : 'fa-regular';
-    const retweetIcon = post.retweeted_by_me ? 'fa-solid' : 'fa-regular';
-    const bookmarkIcon = post.bookmarked_by_me ? 'fa-solid' : 'fa-regular';
-    const canEdit = currentUser && (currentUser.id === post.user_id || currentProfile?.is_admin);
-    const editButton = canEdit ? `<button class="edit-post-btn text-gray-500 hover:text-stash-blue ml-2" data-post-id="${post.id}"><i class="fa-regular fa-pen-to-square"></i></button>` : '';
-
-    let pollHtml = '';
-    if (post.poll_options) {
-      const options = JSON.parse(post.poll_options);
-      pollHtml = '<div class="mt-2 space-y-1">' + options.map(o => `<div class="bg-stash-dark p-2 rounded">${o}</div>`).join('') + '</div>';
+        const totalPages = Math.ceil(filteredPapers.length / papersPerPage);
+        const paginationDiv = document.getElementById('paginationControls');
+        if (totalPages <= 1) { paginationDiv.innerHTML = ''; return; }
+        let paginationHtml = '';
+        for (let i = 1; i <= totalPages; i++) paginationHtml += `<button class="${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+        paginationDiv.innerHTML = paginationHtml;
     }
 
-    return `
-      <div class="p-4 border-b border-stash hover:bg-[#080808] transition" data-post-id="${post.id}">
-        <div class="flex gap-3">
-          <img src="${escapedAvatar}" class="avatar-feed cursor-pointer" onclick="goToProfile('${post.user_id}')">
-          <div class="flex-1">
-            <div class="flex items-center gap-1 flex-wrap">
-              <span class="font-bold">${escapedName}</span>
-              ${post.profile?.is_verified ? '<i class="fa-solid fa-circle-check text-stash-blue text-sm"></i>' : ''}
-              <span class="text-gray-500 text-sm">@${escapedUsername} · ${timeAgo(post.created_at)}</span>
-              ${editButton}
-            </div>
-            <p class="mt-1">${linkedContent}</p>
-            ${post.image_url ? `<img src="${escapeHTML(post.image_url)}" loading="lazy" class="rounded-xl mt-2 max-h-96 object-cover">` : ''}
-            ${post.video_url ? `<div class="mt-2"><iframe src="${escapeHTML(post.video_url)}" loading="lazy" class="w-full h-64 rounded-xl" frameborder="0" allowfullscreen></iframe></div>` : ''}
-            ${pollHtml}
-            <div class="flex justify-between mt-3 text-gray-500 max-w-md">
-              <button class="reply-btn flex items-center gap-1 hover:text-stash-blue" data-post-id="${post.id}"><i class="fa-regular fa-comment"></i> ${post.replies_count}</button>
-              <button class="retweet-btn flex items-center gap-1 hover:text-green-500" data-post-id="${post.id}"><i class="${retweetIcon} fa-retweet"></i> ${post.retweets_count}</button>
-              <button class="like-btn flex items-center gap-1 hover:text-red-500" data-post-id="${post.id}"><i class="${likeIcon} fa-heart"></i> ${post.likes_count}</button>
-              <button class="bookmark-btn flex items-center gap-1 hover:text-stash-blue" data-post-id="${post.id}"><i class="${bookmarkIcon} fa-bookmark"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
+    function toggleBlock(blockId) { document.getElementById(`block-${blockId}`)?.classList.toggle('show'); }
+    function goToPage(page) { currentPage = page; renderPapers(); }
 
-  function attachPostListeners() {
-    document.querySelectorAll('.like-btn').forEach(btn => btn.addEventListener('click', handleLike));
-    document.querySelectorAll('.retweet-btn').forEach(btn => btn.addEventListener('click', handleRetweet));
-    document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('click', handleBookmark));
-    document.querySelectorAll('.reply-btn').forEach(btn => btn.addEventListener('click', openReplyModal));
-    document.querySelectorAll('.edit-post-btn').forEach(btn => btn.addEventListener('click', openEditModal));
-  }
-
-  // ==================== INTERACTIONS ====================
-  async function handleLike(e) { /* unchanged */ }
-  async function handleRetweet(e) { /* unchanged */ }
-  async function handleBookmark(e) { /* unchanged */ }
-  function openReplyModal(e) { /* unchanged */ }
-  document.getElementById('reply-form').addEventListener('submit', async (e) => { /* unchanged */ });
-  async function createNotification(targetUserId, type, postId = null) { /* unchanged */ }
-
-  // ==================== EDIT POST ====================
-  function openEditModal(e) { /* unchanged */ }
-  document.getElementById('edit-post-form').addEventListener('submit', async (e) => { /* unchanged */ });
-
-  // ==================== COMPOSE ====================
-  document.getElementById('compose-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) { showAuthModal(); return; }
-    const content = document.getElementById('compose-content').value.trim();
-    const image_url = document.getElementById('compose-image').value;
-    const video_url = validateVideoUrl(document.getElementById('compose-video').value);
-    const isPoll = document.getElementById('compose-poll').checked;
-    if (!content && !image_url && !video_url) { alert('Post cannot be empty'); return; }
-    const poll_options = isPoll ? JSON.stringify(['Home', 'Draw', 'Away']) : null;
-    const { error } = await _supabase.from('posts').insert({
-      user_id: currentUser.id,
-      content,
-      image_url: image_url || null,
-      video_url: video_url,
-      poll_options
-    });
-    if (!error) {
-      closeModal('compose-modal');
-      document.getElementById('compose-content').value = '';
-      document.getElementById('compose-image').value = '';
-      document.getElementById('compose-video').value = '';
-      document.getElementById('compose-poll').checked = false;
-      loadHomeFeed(true);
-      const mentions = content.match(/@([a-zA-Z0-9_]+)/g);
-      if (mentions) {
-        for (let m of mentions) {
-          const username = m.slice(1);
-          const { data: user } = await _supabase.from('profiles').select('id').eq('username', username).single();
-          if (user) createNotification(user.id, 'mention', null);
+    async function openPaperQuestions(paperId) {
+        currentPaperId = paperId;
+        const paper = papersDatabase.find(p => p.id === paperId);
+        if (!paper) return;
+        let metaHtml = `${paper.blockName} | ${paper.intake==='march'?'March':'September'} ${paper.year}<br>`;
+        if(paper.exam_title) metaHtml += `<strong>${escapeHtml(paper.exam_title)}</strong><br>`;
+        if(paper.exam_date) metaHtml += `📅 ${escapeHtml(paper.exam_date)} `;
+        if(paper.exam_time) metaHtml += `⏰ ${escapeHtml(paper.exam_time)}<br>`;
+        if(paper.instructions) metaHtml += `<em>${escapeHtml(paper.instructions)}</em><br>`;
+        document.getElementById('modalTitle').innerHTML = `<i class="fas fa-book"></i> ${escapeHtml(paper.paperNo)}`;
+        document.getElementById('modalMeta').innerHTML = metaHtml;
+        const questionsByPart = { 1: [], 2: [], 3: [] };
+        paper.questions.forEach(q => { questionsByPart[q.part || 1].push(q); });
+        let html = '';
+        const partNames = {1:'PART I: Multiple Choice Questions (MCQs)', 2:'PART II: Short Answer Questions (SAQs)', 3:'PART III: Long/Essay Answer Questions (LAQs)'};
+        for(let p=1; p<=3; p++) {
+            if(questionsByPart[p].length === 0) continue;
+            html += `<div class="part-group"><div class="part-head">${partNames[p]}</div>`;
+            questionsByPart[p].forEach((q, idx) => {
+                html += `<div class="single-question">
+                            <div class="question-text-full">${idx+1}. ${escapeHtml(q.text)}</div>
+                            <button class="reveal-q" onclick="toggleAnswer(${p}_${idx})"><i class="fas fa-lightbulb"></i> Reveal Answer</button>
+                            <div id="answer-${p}_${idx}" class="answer-full"><i class="fas fa-graduation-cap" style="color:#0891b2;margin-right:8px;"></i>${escapeHtml(q.answer).replace(/\n/g,'<br>')}</div>
+                            <div class="progress-btns">
+                                <button class="progress-btn-sm progress-attempted" onclick="updateProgress(${q.id}, 'attempted')">⚠️ Attempted</button>
+                                <button class="progress-btn-sm progress-reviewed" onclick="updateProgress(${q.id}, 'reviewed')">🔄 Reviewed</button>
+                                <button class="progress-btn-sm progress-mastered" onclick="updateProgress(${q.id}, 'mastered')">🏆 Mastered</button>
+                            </div>
+                        </div>`;
+            });
+            // Insert ad after each part if placement = part
+            if (adPlacement === 'part') {
+                const ad = getRandomAd();
+                if (ad && ad.image && ad.image.trim()) {
+                    html += `<div class="ad-place"><a href="${escapeHtml(ad.link)}" target="_blank"><img src="${escapeHtml(ad.image)}" alt="Ad"></a></div>`;
+                }
+            }
+            html += `</div>`;
         }
-      }
-    } else alert('Error: ' + error.message);
-  });
-
-  // ==================== NOTIFICATIONS ====================
-  async function loadNotifications() { /* unchanged */ }
-
-  // ==================== EXPLORE / HASHTAG SEARCH ====================
-  async function loadExplore() { /* unchanged */ }
-  window.searchHashtag = async (tag) => { /* unchanged */ };
-
-  // ==================== STORIES ====================
-  async function loadStoriesPage() {
-    const dayAgo = new Date(Date.now() - 24*60*60*1000).toISOString();
-    const { data } = await _supabase
-      .from('stories')
-      .select('*, profiles(username, avatar_url)')
-      .gte('created_at', dayAgo)
-      .order('created_at', { ascending: false });
-    stories = data || [];
-    const storyViews = {};
-    if (currentUser) {
-      const { data: views } = await _supabase.from('story_views').select('story_id').eq('user_id', currentUser.id);
-      views?.forEach(v => storyViews[v.story_id] = true);
+        // If frequency placement, re-render with ads
+        if (adPlacement === 'frequency') {
+            let allQuestions = [];
+            for(let p=1; p<=3; p++) allQuestions.push(...questionsByPart[p]);
+            let newHtml = '';
+            let qCounter = 0;
+            for(let p=1; p<=3; p++) {
+                if(questionsByPart[p].length === 0) continue;
+                newHtml += `<div class="part-group"><div class="part-head">${partNames[p]}</div>`;
+                for(let i=0; i<questionsByPart[p].length; i++) {
+                    const q = questionsByPart[p][i];
+                    qCounter++;
+                    newHtml += `<div class="single-question">
+                                <div class="question-text-full">${i+1}. ${escapeHtml(q.text)}</div>
+                                <button class="reveal-q" onclick="toggleAnswer(${p}_${i})"><i class="fas fa-lightbulb"></i> Reveal Answer</button>
+                                <div id="answer-${p}_${i}" class="answer-full"><i class="fas fa-graduation-cap" style="color:#0891b2;margin-right:8px;"></i>${escapeHtml(q.answer).replace(/\n/g,'<br>')}</div>
+                                <div class="progress-btns">
+                                    <button class="progress-btn-sm progress-attempted" onclick="updateProgress(${q.id}, 'attempted')">⚠️ Attempted</button>
+                                    <button class="progress-btn-sm progress-reviewed" onclick="updateProgress(${q.id}, 'reviewed')">🔄 Reviewed</button>
+                                    <button class="progress-btn-sm progress-mastered" onclick="updateProgress(${q.id}, 'mastered')">🏆 Mastered</button>
+                                </div>
+                            </div>`;
+                    if (adFrequency > 0 && qCounter % adFrequency === 0 && qCounter < allQuestions.length) {
+                        const ad = getRandomAd();
+                        if (ad && ad.image && ad.image.trim()) {
+                            newHtml += `<div class="ad-place"><a href="${escapeHtml(ad.link)}" target="_blank"><img src="${escapeHtml(ad.image)}" alt="Ad"></a></div>`;
+                        }
+                    }
+                }
+                newHtml += `</div>`;
+            }
+            html = newHtml;
+        }
+        document.getElementById('modalQuestions').innerHTML = html;
+        document.getElementById('questionModal').classList.add('show');
     }
-    let html = '<div class="p-4"><h2 class="text-2xl font-bold mb-4">Stories</h2><div class="flex gap-2 overflow-x-auto pb-2">';
-    const userStories = {};
-    stories.forEach(s => { if (!userStories[s.user_id]) userStories[s.user_id] = []; userStories[s.user_id].push(s); });
-    for (let uid in userStories) {
-      const us = userStories[uid];
-      const profile = us[0].profiles;
-      const allSeen = us.every(s => storyViews[s.id]);
-      html += `<div class="flex flex-col items-center cursor-pointer" onclick="viewStories('${uid}')"><div class="story-ring ${allSeen ? 'seen' : ''}"><img src="${profile?.avatar_url || 'https://via.placeholder.com/60'}" class="story-avatar"></div><span class="text-xs mt-1">${profile?.username}</span></div>`;
+
+    window.toggleAnswer = function(id) { document.getElementById(`answer-${id}`)?.classList.toggle('show'); };
+    function closeQuestionModal() { document.getElementById('questionModal').classList.remove('show'); currentPaperId = null; }
+    async function deleteCurrentPaper() { if (currentPaperId) await softDeletePaper(currentPaperId); }
+
+    async function updateProgress(questionId, status) {
+        try {
+            const { error } = await supabase.from('nursing_progress').upsert({ user_id: currentUser.id, question_id: questionId, status }, { onConflict: 'user_id, question_id' });
+            if (error) throw error;
+            userProgress[questionId] = status;
+            updateProgressStats();
+            renderProgressList();
+        } catch (err) { showErrorModal("Error updating progress."); }
     }
-    html += '</div>';
-    if (currentUser) html += '<button onclick="openStoryModal()" class="bg-stash-blue text-white px-4 py-2 rounded-full mt-4">Add Story</button>';
-    mainContent.innerHTML = html;
-  }
 
-  window.openStoryModal = () => document.getElementById('story-modal').classList.remove('hidden');
-
-  document.getElementById('story-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) return;
-    const media_url = document.getElementById('story-media').value.trim();
-    const type = document.getElementById('story-type').value;
-    if (!media_url) return;
-    await _supabase.from('stories').insert({ user_id: currentUser.id, media_url, type });
-    closeModal('story-modal');
-    loadStoriesPage();
-  });
-
-  window.viewStories = async (userId) => {
-    const userStories = stories.filter(s => s.user_id === userId);
-    if (currentUser) {
-      for (let s of userStories) {
-        await _supabase.from('story_views').insert({ user_id: currentUser.id, story_id: s.id }).catch(()=>{});
-      }
+    function updateProgressStats() {
+        let total = 0, attempted = 0, mastered = 0;
+        papersDatabase.forEach(p => p.questions.forEach(q => { total++; const s = userProgress[q.id]; if (s === 'attempted' || s === 'reviewed' || s === 'mastered') attempted++; if (s === 'mastered') mastered++; }));
+        document.getElementById('statTotal').textContent = total;
+        document.getElementById('statAttempted').textContent = attempted;
+        document.getElementById('statMastered').textContent = mastered;
     }
-    // Simple story viewer (could be improved)
-    let idx = 0;
-    const showNext = () => {
-      if (idx >= userStories.length) { closeModal('story-viewer'); return; }
-      const s = userStories[idx];
-      const media = s.type === 'video' ? `<video src="${escapeHTML(s.media_url)}" controls autoplay class="w-full h-full"></video>` : `<img src="${escapeHTML(s.media_url)}" class="w-full h-full object-contain">`;
-      const viewer = document.createElement('div');
-      viewer.id = 'story-viewer';
-      viewer.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center';
-      viewer.innerHTML = `<div class="relative w-full h-full">${media}<button onclick="this.parentElement.parentElement.remove()" class="absolute top-4 right-4 text-white text-2xl">✕</button></div>`;
-      viewer.onclick = () => { viewer.remove(); showNext(); };
-      document.body.appendChild(viewer);
-      idx++;
-      setTimeout(showNext, 5000);
-    };
-    showNext();
-  };
 
-  // ==================== MARKETPLACE ====================
-  async function loadMarketplace() {
-    const { data } = await _supabase.from('products').select('*, profiles(username)').eq('status', 'active').order('created_at', { ascending: false });
-    products = data || [];
-    let html = '<div class="p-4"><h2 class="text-2xl font-bold mb-4">Marketplace</h2>';
-    if (currentUser) html += '<button onclick="openProductModal()" class="bg-stash-blue text-white px-4 py-2 rounded-full mb-4">Sell an item</button>';
-    products.forEach(p => {
-      html += `<div class="product-card"><img src="${escapeHTML(p.image_url||'')}" class="product-image"><h3 class="font-bold mt-2">${escapeHTML(p.title)}</h3><p>${escapeHTML(p.description||'')}</p><p class="text-stash-blue font-bold">$${p.price}</p><p class="text-sm text-gray-400">Seller: @${escapeHTML(p.profiles?.username)}</p>${p.user_id !== currentUser?.id ? `<button onclick="buyProduct('${p.id}','${p.price}')" class="bg-green-600 text-white px-3 py-1 rounded-full mt-2">Buy now</button>` : ''}</div>`;
-    });
-    mainContent.innerHTML = html;
-  }
+    function renderProgressList() {
+        const container = document.getElementById('progressList');
+        const items = [];
+        papersDatabase.forEach(paper => {
+            paper.questions.forEach(q => {
+                const s = userProgress[q.id];
+                if (s) items.push(`<div class="paper-item" style="cursor:pointer;" onclick="openPaperQuestions(${paper.id})"><div class="paper-header-row"><span class="paper-name">${escapeHtml(paper.paperNo)}</span><span class="paper-intake">${paper.intake==='march'?'March':'September'} ${paper.year}</span></div><div style="font-size:12px;">${escapeHtml(q.text.substring(0,80))}...</div><div><span style="background:${s==='mastered'?'#dcfce7':'#fef3c7'};padding:2px 8px;border-radius:12px;">${s==='mastered'?'✅ Mastered':s==='reviewed'?'🔄 Reviewed':'⚠️ Attempted'}</span></div></div>`);
+            });
+        });
+        container.innerHTML = items.length ? items.join('') : '<div class="block-section"><div style="padding:40px;text-align:center;">No progress yet.</div></div>';
+    }
 
-  window.openProductModal = () => document.getElementById('product-modal').classList.remove('hidden');
+    async function softDeletePaper(paperId) {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        if (confirm("Move this paper to trash?")) {
+            try {
+                const { error } = await supabase.from('nursing_papers').update({ deleted_at: new Date().toISOString() }).eq('id', paperId);
+                if (error) throw error;
+                await loadPapersAndProgress();
+                if (currentPaperId === paperId) closeQuestionModal();
+            } catch (err) { showErrorModal("Error deleting paper."); }
+        }
+    }
 
-  document.getElementById('product-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) return;
-    const title = document.getElementById('product-title').value.trim();
-    const description = document.getElementById('product-description').value.trim();
-    const image_url = document.getElementById('product-image').value.trim() || null;
-    const price = parseFloat(document.getElementById('product-price').value);
-    if (!title || !price) return;
-    await _supabase.from('products').insert({ user_id: currentUser.id, title, description, image_url, price });
-    closeModal('product-modal');
-    loadMarketplace();
-  });
+    async function restorePaper(paperId) {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        if (confirm("Restore this paper?")) {
+            try {
+                const { error } = await supabase.from('nursing_papers').update({ deleted_at: null }).eq('id', paperId);
+                if (error) throw error;
+                await loadPapersAndProgress();
+            } catch (err) { showErrorModal("Error restoring paper."); }
+        }
+    }
 
-  window.buyProduct = async (productId, price) => {
-    if (!currentUser) { showAuthModal(); return; }
-    const { data: wallet } = await _supabase.from('wallets').select('balance').eq('user_id', currentUser.id).single();
-    if (!wallet || wallet.balance < price) { alert('Insufficient balance'); return; }
-    await _supabase.rpc('deduct_wallet', { p_user_id: currentUser.id, amount: price });
-    await _supabase.from('orders').insert({ buyer_id: currentUser.id, product_id: productId, amount: price, status: 'paid' });
-    await _supabase.from('products').update({ status: 'sold' }).eq('id', productId);
-    alert('Purchase successful!');
-    loadMarketplace();
-  };
+    async function permanentDeletePaper(paperId) {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        if (confirm("Permanently delete this paper? This cannot be undone.")) {
+            try {
+                await supabase.from('nursing_questions').delete().eq('paper_id', paperId);
+                const { error } = await supabase.from('nursing_papers').delete().eq('id', paperId);
+                if (error) throw error;
+                await loadPapersAndProgress();
+            } catch (err) { showErrorModal("Error permanently deleting."); }
+        }
+    }
 
-  // ==================== ADVERTISING ====================
-  // Profile page now has a "Create Campaign" button
-  // Admin can manage campaigns
-
-  // ==================== PROFILE ====================
-  async function loadProfile(userId) {
-    if (!userId) userId = currentUser.id;
-    const { data: profile } = await _supabase.from('profiles').select('*').eq('id', userId).single();
-    const { data: userPosts } = await _supabase.from('posts').select('*').eq('user_id', userId).is('parent_id', null).order('created_at', { ascending: false });
-    await enrichPosts(userPosts || []);
-    const { data: wallet } = await _supabase.from('wallets').select('balance').eq('user_id', userId).single();
-    const balance = wallet?.balance || 0;
-    const { count: monetizedCount } = await _supabase.from('posts').select('*', { count: 'exact', head: true }).eq('user_id', userId).eq('monetization_approved', true);
-    const canWithdraw = monetizedCount > 0 && balance > 0;
-
-    let html = `
-      <div class="relative">
-        <img src="${profile?.banner_url || 'https://via.placeholder.com/600x150'}" class="banner-profile">
-        <img src="${profile?.avatar_url || 'https://via.placeholder.com/96'}" class="avatar-profile absolute -bottom-12 left-4">
-        <div class="pt-16 p-4">
-          <div class="flex justify-between">
-            <div>
-              <h2 class="text-2xl font-bold">${escapeHTML(profile?.display_name || 'User')}</h2>
-              <p class="text-gray-500">@${escapeHTML(profile?.username)}</p>
+    function renderTrash() {
+        const container = document.getElementById('trashGrid');
+        if (deletedPapersDatabase.length === 0) { container.innerHTML = '<div class="block-section"><div style="padding:40px;text-align:center;">No deleted papers</div></div>'; return; }
+        container.innerHTML = deletedPapersDatabase.map(paper => `
+            <div class="paper-item">
+                <div class="paper-header-row"><span class="paper-name">${escapeHtml(paper.paperNo)}</span><span class="paper-intake">${paper.intake==='march'?'March':'September'} ${paper.year}</span></div>
+                <div style="font-size:11px;">📝 ${paper.questions?.length || 0} questions</div>
+                <div style="display:flex; gap:8px; margin-top:10px;">
+                    <button class="view-btn" style="border-color:#16a34a; color:#16a34a;" onclick="restorePaper(${paper.id})"><i class="fas fa-undo-alt"></i> Restore</button>
+                    <button class="delete-paper-btn" onclick="permanentDeletePaper(${paper.id})"><i class="fas fa-trash-alt"></i> Delete Forever</button>
+                </div>
             </div>
-            ${userId === currentUser?.id ? '<button onclick="loadSettings()" class="bg-stash-blue text-white px-4 py-2 rounded-full">Edit profile</button>' : '<button onclick="followUser(\''+userId+'\')" class="bg-stash-blue text-white px-4 py-2 rounded-full">Follow</button>'}
-          </div>
-          <p class="mt-2">${escapeHTML(profile?.bio || '')}</p>
-          <div class="flex gap-4 mt-2 text-gray-500">
-            <span><span class="font-bold text-white">${profile?.following_count || 0}</span> Following</span>
-            <span><span class="font-bold text-white">${profile?.followers_count || 0}</span> Followers</span>
-          </div>
-          ${canWithdraw ? `<div class="mt-4"><button onclick="openWithdrawModal(${balance})" class="bg-green-600 text-white px-4 py-2 rounded-full">Withdraw $${balance.toFixed(2)}</button></div>` : ''}
-          ${userId === currentUser?.id ? `<button onclick="openCampaignModal()" class="bg-stash-blue text-white px-4 py-2 rounded-full mt-2">Create Ad Campaign</button>` : ''}
-        </div>
-      </div>
-    `;
-    userPosts?.forEach(p => html += renderPost(p));
-    mainContent.innerHTML = html;
-    attachPostListeners();
-  }
-
-  window.openCampaignModal = () => document.getElementById('campaign-modal').classList.remove('hidden');
-
-  document.getElementById('campaign-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) return;
-    const name = document.getElementById('campaign-name').value.trim();
-    const image_url = document.getElementById('campaign-image').value.trim();
-    const link_url = document.getElementById('campaign-link').value.trim() || null;
-    const type = document.getElementById('campaign-type').value;
-    const bid = parseFloat(document.getElementById('campaign-bid').value);
-    const budget = parseFloat(document.getElementById('campaign-budget').value);
-    if (!name || !image_url || !bid || !budget) return;
-    // Check wallet
-    const { data: wallet } = await _supabase.from('wallets').select('balance').eq('user_id', currentUser.id).single();
-    if (!wallet || wallet.balance < budget) { alert('Insufficient balance'); return; }
-    await _supabase.rpc('deduct_wallet', { p_user_id: currentUser.id, amount: budget });
-    await _supabase.from('ad_campaigns').insert({
-      user_id: currentUser.id,
-      name,
-      image_url,
-      link_url,
-      type,
-      bid,
-      budget,
-      spent: 0,
-      active: true
-    });
-    closeModal('campaign-modal');
-    alert('Campaign created!');
-  });
-
-  async function followUser(userId) { /* unchanged */ }
-
-  // ==================== SETTINGS ====================
-  async function loadSettings() { /* unchanged but also show wallet balance and min withdrawal */ }
-
-  // ==================== WITHDRAWALS ====================
-  window.openWithdrawModal = (balance) => {
-    document.getElementById('withdraw-balance').textContent = `$${balance.toFixed(2)}`;
-    document.getElementById('min-withdraw-amount').textContent = minWithdrawal.toFixed(2);
-    document.getElementById('withdraw-modal').classList.remove('hidden');
-  };
-
-  document.getElementById('withdraw-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) return;
-    const balance = parseFloat(document.getElementById('withdraw-balance').textContent.slice(1));
-    const amount = parseFloat(document.getElementById('withdraw-amount').value);
-    if (amount < minWithdrawal) { alert(`Minimum withdrawal is $${minWithdrawal}`); return; }
-    if (amount > balance) { alert('Amount exceeds balance'); return; }
-    const method = document.getElementById('withdraw-method').value;
-    const address = document.getElementById('withdraw-address').value.trim();
-    if (!amount || !method || !address) return;
-    const { error } = await _supabase.from('withdrawals').insert({
-      user_id: currentUser.id,
-      amount,
-      method,
-      address,
-      status: 'pending'
-    });
-    if (error) alert('Withdrawal request failed: ' + error.message);
-    else {
-      alert('Withdrawal request submitted. Admin will review.');
-      closeModal('withdraw-modal');
+        `).join('');
     }
-  });
 
-  // ==================== ADMIN DASHBOARD ====================
-  window.openAdminDashboard = async () => {
-    document.getElementById('admin-modal').classList.remove('hidden');
-    await loadAdminDashboard();
-  };
+    // Books
+    async function loadBooks() {
+        try {
+            const { data: books, error } = await supabase.from('books').select('*');
+            if (error) throw error;
+            booksList = books;
+            const { data: userBooksData, error: ubError } = await supabase.from('user_books').select('book_id, shelf').eq('user_id', currentUser.id);
+            if (!ubError) {
+                userBooks = {};
+                userBooksData.forEach(ub => { userBooks[ub.book_id] = ub.shelf; });
+            }
+            renderBooks();
+        } catch (err) { console.error(err); showErrorModal("Failed to load books."); }
+    }
 
-  async function loadAdminDashboard() {
-    // Stats
-    const { count: users } = await _supabase.from('profiles').select('*', { count: 'exact', head: true });
-    const { count: postsCount } = await _supabase.from('posts').select('*', { count: 'exact', head: true });
-    const { data: viewsData } = await _supabase.from('posts').select('views');
-    const totalViews = (viewsData || []).reduce((a,b) => a + (b.views||0), 0);
-    const { data: earnings } = await _supabase.from('user_earnings').select('total_earned');
-    const totalEarnings = (earnings || []).reduce((a,b) => a + (b.total_earned||0), 0);
+    function renderBooks() {
+        const search = document.getElementById('bookSearch').value.toLowerCase();
+        const shelfFilter = document.getElementById('shelfFilter').value;
+        let filtered = booksList.filter(b =>
+            (b.title?.toLowerCase().includes(search) || b.author?.toLowerCase().includes(search)) &&
+            (shelfFilter === 'all' || userBooks[b.id] === shelfFilter)
+        );
+        const container = document.getElementById('booksGrid');
+        if (filtered.length === 0) { container.innerHTML = '<div class="block-section"><div style="padding:40px;text-align:center;">No books found</div></div>'; return; }
+        container.innerHTML = filtered.map(book => `
+            <div class="book-card">
+                <img class="book-cover" src="${escapeHtml(book.cover_url)}" onerror="this.src='https://via.placeholder.com/80x100?text=No+Image'" alt="Cover">
+                <div class="book-info">
+                    <div class="book-title">${escapeHtml(book.title)}</div>
+                    <div class="book-author">${escapeHtml(book.author)}</div>
+                    <div class="book-summary">${escapeHtml(book.summary?.substring(0,150))}${book.summary?.length>150?'...':''}</div>
+                    <div class="book-actions">
+                        <select class="shelf-select" data-book-id="${book.id}" onchange="updateShelf(${book.id}, this.value)">
+                            <option value="to-read" ${userBooks[book.id] === 'to-read' ? 'selected' : ''}>To Read</option>
+                            <option value="reading" ${userBooks[book.id] === 'reading' ? 'selected' : ''}>Reading</option>
+                            <option value="read" ${userBooks[book.id] === 'read' ? 'selected' : ''}>Read</option>
+                        </select>
+                        ${book.download_url ? `<a href="${escapeHtml(book.download_url)}" target="_blank" class="download-btn"><i class="fas fa-download"></i> Download</a>` : ''}
+                        ${isAdmin ? `<button class="delete-paper-btn" onclick="deleteBook(${book.id})"><i class="fas fa-trash-alt"></i> Delete</button>` : ''}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const panes = `
-      <div class="tab-pane active" data-pane="dashboard"><div class="grid grid-cols-2 gap-4">...</div></div>
-      <div class="tab-pane hidden" data-pane="users"><div id="admin-users-list"></div></div>
-      <div class="tab-pane hidden" data-pane="posts"><div id="admin-posts-list"></div></div>
-      <div class="tab-pane hidden" data-pane="campaigns"><div id="admin-campaigns-list"></div></div>
-      <div class="tab-pane hidden" data-pane="products"><div id="admin-products-list"></div></div>
-      <div class="tab-pane hidden" data-pane="withdrawals"><div id="admin-withdrawals-list"></div></div>
-      <div class="tab-pane hidden" data-pane="analytics">
-        <select id="analytics-range"><option value="day">Today</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select>
-        <canvas id="admin-chart"></canvas>
-      </div>
-      <div class="tab-pane hidden" data-pane="settings">
-        <label>Min Withdrawal Amount</label><input type="number" id="set-min-withdrawal" value="${minWithdrawal}"><button onclick="saveMinWithdrawal()">Save</button>
-      </div>
-    `;
-    document.getElementById('admin-panes').innerHTML = panes;
-    // ... load lists and chart (omitted for brevity but would be included in full version)
-  }
+    async function updateShelf(bookId, shelf) {
+        try {
+            const { error } = await supabase.from('user_books').upsert({ user_id: currentUser.id, book_id: bookId, shelf }, { onConflict: 'user_id, book_id' });
+            if (error) throw error;
+            userBooks[bookId] = shelf;
+            renderBooks();
+        } catch (err) { showErrorModal("Failed to update shelf."); }
+    }
 
-  window.saveMinWithdrawal = async () => {
-    const val = parseFloat(document.getElementById('set-min-withdrawal').value);
-    await _supabase.from('settings').update({ value: val.toString() }).eq('key', 'min_withdrawal');
-    minWithdrawal = val;
-    alert('Saved');
-  };
+    async function addBook() {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        const title = document.getElementById('bookTitle').value.trim();
+        const author = document.getElementById('bookAuthor').value.trim();
+        const cover = document.getElementById('bookCover').value.trim();
+        const download = document.getElementById('bookDownload').value.trim();
+        const summary = document.getElementById('bookSummary').value.trim();
+        if (!title) { showErrorModal("Title required"); return; }
+        try {
+            const { error } = await supabase.from('books').insert([{ title, author, cover_url: cover, download_url: download, summary }]);
+            if (error) throw error;
+            showErrorModal("Book added!");
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('bookAuthor').value = '';
+            document.getElementById('bookCover').value = '';
+            document.getElementById('bookDownload').value = '';
+            document.getElementById('bookSummary').value = '';
+            await loadBooks();
+        } catch (err) { showErrorModal("Error adding book."); }
+    }
 
-  // ==================== INFINITE SCROLL ====================
-  function setupInfiniteScroll() {
-    if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
-    scrollHandler = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) loadHomeFeed(false);
-    };
-    window.addEventListener('scroll', scrollHandler);
-  }
+    async function deleteBook(bookId) {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        if (confirm("Delete this book permanently?")) {
+            try {
+                const { error } = await supabase.from('books').delete().eq('id', bookId);
+                if (error) throw error;
+                await loadBooks();
+            } catch (err) { showErrorModal("Error deleting book."); }
+        }
+    }
 
-  // ==================== INIT ====================
-  const mainContent = document.getElementById('main-content');
-  loadPage('home');
+    // Ads
+    async function loadAdSettings() {
+        try {
+            const { data, error } = await supabase.from('app_settings').select('setting_key, setting_value').in('setting_key', ['ads_list', 'show_ad_icon', 'ad_placement', 'ad_frequency']);
+            if (!error && data) {
+                const adsListRaw = data.find(r => r.setting_key === 'ads_list')?.setting_value;
+                if (adsListRaw) adsList = JSON.parse(adsListRaw);
+                else adsList = [];
+                showAdIcon = data.find(r => r.setting_key === 'show_ad_icon')?.setting_value === 'true';
+                adPlacement = data.find(r => r.setting_key === 'ad_placement')?.setting_value || 'part';
+                adFrequency = parseInt(data.find(r => r.setting_key === 'ad_frequency')?.setting_value) || 3;
+            }
+            renderAdsListUI();
+            updateAdIconVisibility();
+        } catch (err) { console.warn("Failed to load ad settings", err); }
+    }
+
+    function renderAdsListUI() {
+        const container = document.getElementById('adsListContainer');
+        if (!container) return;
+        container.innerHTML = '';
+        adsList.forEach((ad, idx) => {
+            const adDiv = document.createElement('div');
+            adDiv.className = 'ad-entry';
+            adDiv.innerHTML = `
+                <div class="form-group"><label>Image URL</label><input type="text" value="${escapeHtml(ad.image)}" data-index="${idx}" data-field="image"></div>
+                <div class="form-group"><label>Link URL</label><input type="text" value="${escapeHtml(ad.link)}" data-index="${idx}" data-field="link"></div>
+                <button class="remove-q" onclick="removeAd(${idx})">Remove Ad</button>
+            `;
+            container.appendChild(adDiv);
+        });
+        document.querySelectorAll('#adsListContainer input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const idx = parseInt(input.dataset.index);
+                const field = input.dataset.field;
+                if (!isNaN(idx) && adsList[idx]) adsList[idx][field] = input.value;
+            });
+        });
+    }
+
+    function addAd() { adsList.push({ image: '', link: '' }); renderAdsListUI(); }
+    function removeAd(index) { adsList.splice(index, 1); renderAdsListUI(); }
+
+    async function saveAdSettings() {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        const showIcon = document.getElementById('showAdIcon').checked;
+        const placement = document.getElementById('adPlacement').value;
+        const freq = parseInt(document.getElementById('adFrequency').value) || 3;
+        try {
+            await supabase.from('app_settings').upsert({ setting_key: 'ads_list', setting_value: JSON.stringify(adsList) }, { onConflict: 'setting_key' });
+            await supabase.from('app_settings').upsert({ setting_key: 'show_ad_icon', setting_value: showIcon.toString() }, { onConflict: 'setting_key' });
+            await supabase.from('app_settings').upsert({ setting_key: 'ad_placement', setting_value: placement }, { onConflict: 'setting_key' });
+            await supabase.from('app_settings').upsert({ setting_key: 'ad_frequency', setting_value: freq.toString() }, { onConflict: 'setting_key' });
+            showAdIcon = showIcon;
+            updateAdIconVisibility();
+            const msgDiv = document.getElementById('adsSaveMsg');
+            msgDiv.innerHTML = '<i class="fas fa-check-circle"></i> Ads saved!';
+            msgDiv.style.display = 'block';
+            setTimeout(() => msgDiv.style.display = 'none', 3000);
+        } catch (err) { showErrorModal('Error saving ad settings: ' + err.message); }
+    }
+
+    function updateAdIconVisibility() {
+        const icon = document.getElementById('adIconBtn');
+        if (icon) icon.style.display = showAdIcon ? 'flex' : 'none';
+    }
+
+    function getRandomAd() {
+        if (!adsList.length) return null;
+        return adsList[Math.floor(Math.random() * adsList.length)];
+    }
+
+    // Simulation
+    async function loadSimulation() {
+        // Load the first simulation (id=1) for simplicity
+        const { data: sim, error: simErr } = await supabase.from('simulations').select('*').eq('id', currentSimulationId).single();
+        if (simErr) { console.error(simErr); return; }
+        const { data: steps, error: stepsErr } = await supabase.from('simulation_steps').select('*').eq('simulation_id', currentSimulationId).order('step_number');
+        if (stepsErr) { console.error(stepsErr); return; }
+        simulationSteps = steps.map(step => ({
+            ...step,
+            options: JSON.parse(step.options)
+        }));
+        renderSimulation();
+    }
+
+    function renderSimulation() {
+        const container = document.getElementById('simulationContainer');
+        if (!container) return;
+        const totalSteps = simulationSteps.length;
+        const progressPercent = (currentStepIndex / totalSteps) * 100;
+        let html = `
+            <div class="simulation-card">
+                <div class="sim-header">
+                    <h2><i class="fas fa-heartbeat"></i> Clinical Simulation</h2>
+                    <p>Work through the case step by step. Answer correctly to proceed.</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-wrapper"><div class="progress-fill" style="width: ${progressPercent}%;"></div></div>
+                    <div class="step-counter">Step ${currentStepIndex} of ${totalSteps}</div>
+                </div>
+                <div class="sim-content">
+        `;
+        if (currentStepIndex < totalSteps) {
+            const step = simulationSteps[currentStepIndex];
+            html += `
+                <div class="current-question">
+                    <p><strong>Step ${step.step_number}:</strong> ${escapeHtml(step.question)}</p>
+                    <div class="options">
+            `;
+            step.options.forEach((opt, optIdx) => {
+                html += `
+                    <label class="option">
+                        <input type="radio" name="step" value="${optIdx}">
+                        <span>${escapeHtml(opt.text)}</span>
+                    </label>
+                `;
+            });
+            html += `
+                    </div>
+                    <div id="stepFeedback" class="feedback"></div>
+                    <button id="submitStepBtn" class="sim-button" onclick="submitSimulationStep()">Submit Answer</button>
+                    <button id="nextStepBtn" class="sim-button reset" style="display: none;" onclick="nextSimulationStep()">Next Step <i class="fas fa-arrow-right"></i></button>
+                </div>
+            `;
+        } else {
+            const correctCount = userAnswers.filter(a => a === true).length;
+            html += `
+                <div class="completion-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Simulation Completed!</h3>
+                    <p>You answered ${correctCount} out of ${totalSteps} steps correctly.</p>
+                    <button class="sim-button" onclick="resetSimulation()">Restart Simulation</button>
+                </div>
+            `;
+            // Save result to database
+            saveSimulationResult(correctCount);
+        }
+        html += `</div></div>`;
+        container.innerHTML = html;
+    }
+
+    async function submitSimulationStep() {
+        const selectedRadio = document.querySelector('input[name="step"]:checked');
+        const feedbackDiv = document.getElementById('stepFeedback');
+        const submitBtn = document.getElementById('submitStepBtn');
+        const nextBtn = document.getElementById('nextStepBtn');
+        if (!selectedRadio) {
+            feedbackDiv.innerHTML = "Please select an answer.";
+            feedbackDiv.classList.add('incorrect');
+            feedbackDiv.style.display = 'block';
+            return;
+        }
+        const selectedIdx = parseInt(selectedRadio.value);
+        const step = simulationSteps[currentStepIndex];
+        const selectedOption = step.options[selectedIdx];
+        const isCorrect = selectedOption.correct;
+        if (isCorrect) {
+            feedbackDiv.innerHTML = `<i class="fas fa-check-circle"></i> Correct! ${escapeHtml(selectedOption.feedback)}`;
+            feedbackDiv.classList.add('correct');
+            feedbackDiv.classList.remove('incorrect');
+            userAnswers[currentStepIndex] = true;
+        } else {
+            feedbackDiv.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. ${escapeHtml(selectedOption.feedback)}`;
+            feedbackDiv.classList.add('incorrect');
+            feedbackDiv.classList.remove('correct');
+            userAnswers[currentStepIndex] = false;
+        }
+        feedbackDiv.style.display = 'block';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+        nextBtn.style.display = 'inline-block';
+    }
+
+    function nextSimulationStep() {
+        currentStepIndex++;
+        renderSimulation();
+    }
+
+    function resetSimulation() {
+        currentStepIndex = 0;
+        userAnswers = [];
+        renderSimulation();
+    }
+
+    async function saveSimulationResult(score) {
+        try {
+            const { error } = await supabase.from('user_simulation_results').upsert({
+                user_id: currentUser.id,
+                simulation_id: currentSimulationId,
+                answers: userAnswers,
+                score: score,
+                completed_at: new Date().toISOString()
+            }, { onConflict: 'user_id, simulation_id' });
+            if (error) throw error;
+        } catch (err) { console.error("Error saving simulation result", err); }
+    }
+
+    // Add paper form handling
+    function addQuestionField(part) {
+        const containerId = `${part}QuestionsContainer`;
+        const container = document.getElementById(containerId);
+        const arr = part === 'mcq' ? mcqQuestions : part === 'saq' ? saqQuestions : laqQuestions;
+        const index = arr.length;
+        arr.push({ text: '', answer: '' });
+        const div = document.createElement('div');
+        div.className = 'question-entry';
+        div.innerHTML = `
+            <textarea placeholder="Question" rows="2" style="width:100%; margin-bottom:8px;"></textarea>
+            <textarea placeholder="Answer" rows="3" style="width:100%;"></textarea>
+            <button class="remove-q" onclick="removeQuestion('${part}', ${index})">Remove Question</button>
+        `;
+        const qArea = div.querySelector('textarea:first-of-type');
+        const aArea = div.querySelector('textarea:last-of-type');
+        qArea.addEventListener('input', (e) => { arr[index].text = e.target.value; });
+        aArea.addEventListener('input', (e) => { arr[index].answer = e.target.value; });
+        container.appendChild(div);
+    }
+
+    function removeQuestion(part, idx) {
+        if (part === 'mcq') mcqQuestions.splice(idx, 1);
+        else if (part === 'saq') saqQuestions.splice(idx, 1);
+        else laqQuestions.splice(idx, 1);
+        renderQuestionSection(part);
+    }
+
+    function renderQuestionSection(part) {
+        const containerId = `${part}QuestionsContainer`;
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const arr = part === 'mcq' ? mcqQuestions : part === 'saq' ? saqQuestions : laqQuestions;
+        container.innerHTML = '';
+        arr.forEach((q, i) => {
+            const div = document.createElement('div');
+            div.className = 'question-entry';
+            div.innerHTML = `
+                <textarea placeholder="Question" rows="2" style="width:100%; margin-bottom:8px;">${escapeHtml(q.text)}</textarea>
+                <textarea placeholder="Answer" rows="3" style="width:100%;">${escapeHtml(q.answer)}</textarea>
+                <button class="remove-q" onclick="removeQuestion('${part}', ${i})">Remove Question</button>
+            `;
+            const qArea = div.querySelector('textarea:first-of-type');
+            const aArea = div.querySelector('textarea:last-of-type');
+            qArea.addEventListener('input', (e) => { arr[i].text = e.target.value; });
+            aArea.addEventListener('input', (e) => { arr[i].answer = e.target.value; });
+            container.appendChild(div);
+        });
+    }
+
+    async function savePaper() {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        const block = document.getElementById('newBlock').value;
+        const paperNo = document.getElementById('newPaperNo').value.trim();
+        const intake = document.getElementById('newIntake').value;
+        const year = document.getElementById('newYear').value.trim();
+        const school = document.getElementById('newSchool').value.trim();
+        const examTitle = document.getElementById('newExamTitle').value.trim();
+        const examDate = document.getElementById('newExamDate').value.trim();
+        const examTime = document.getElementById('newExamTime').value.trim();
+        const instructions = document.getElementById('newInstructions').value.trim();
+        const allQuestions = [
+            ...mcqQuestions.map(q => ({ ...q, part: 1 })),
+            ...saqQuestions.map(q => ({ ...q, part: 2 })),
+            ...laqQuestions.map(q => ({ ...q, part: 3 }))
+        ].filter(q => q.text.trim() !== '');
+        if (!paperNo) { showErrorModal("Enter Paper Number"); return; }
+        if (allQuestions.length === 0) { showErrorModal("Add at least one question"); return; }
+        try {
+            const { data: paperData, error: paperError } = await supabase.from('nursing_papers').insert({
+                block, paper_no: paperNo, intake, year: year || '2024', title: `${paperNo} - ${getBlockName(block)}`,
+                school_name: school, exam_title: examTitle, exam_date: examDate, exam_time: examTime, instructions, deleted_at: null
+            }).select().single();
+            if (paperError) throw paperError;
+            const qToInsert = allQuestions.map(q => ({ paper_id: paperData.id, question_text: q.text, answer: q.answer, part: q.part }));
+            const { error: qe } = await supabase.from('nursing_questions').insert(qToInsert);
+            if (qe) throw qe;
+            document.getElementById('newPaperNo').value = '';
+            document.getElementById('newYear').value = '';
+            document.getElementById('newSchool').value = '';
+            document.getElementById('newExamTitle').value = '';
+            document.getElementById('newExamDate').value = '';
+            document.getElementById('newExamTime').value = '';
+            document.getElementById('newInstructions').value = '';
+            mcqQuestions = []; saqQuestions = []; laqQuestions = [];
+            renderQuestionSection('mcq'); renderQuestionSection('saq'); renderQuestionSection('laq');
+            await loadPapersAndProgress();
+            document.querySelector('.tab-btn[data-tab="papers"]').click();
+        } catch (err) { showErrorModal('Error saving paper: ' + err.message); }
+    }
+
+    // Export/Import (stubs)
+    function exportAllData() { alert("Export feature available in admin panel."); }
+    async function handleImportFile(file) { alert("Import feature coming soon."); }
+
+    // Admin simulation creation
+    async function createSimulation() {
+        if (!isAdmin) { showErrorModal("Admin access required."); return; }
+        const title = document.getElementById('simTitle').value.trim();
+        const description = document.getElementById('simDescription').value.trim();
+        if (!title) { showErrorModal("Title required"); return; }
+        try {
+            const { data, error } = await supabase.from('simulations').insert({ title, description, created_by: currentUser.id }).select().single();
+            if (error) throw error;
+            showErrorModal(`Simulation "${title}" created. You can now add steps (feature in development).`);
+            document.getElementById('simTitle').value = '';
+            document.getElementById('simDescription').value = '';
+        } catch (err) { showErrorModal("Error creating simulation: " + err.message); }
+    }
+
+    // Tab switching
+    function setupTabs() {
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+                if (tab === 'add' || tab === 'ads') {
+                    if (!isAdmin) { showAdminLoginModal(); return; }
+                }
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(`${tab}Tab`).classList.add('active');
+                if (tab === 'progress') renderProgressList();
+                if (tab === 'trash') renderTrash();
+                if (tab === 'simulation') renderSimulation();
+            });
+        });
+    }
+
+    // Initialization
+    async function init() {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const user = await authenticate();
+        if (!user) return;
+        currentUser = user;
+        await loadAllData();
+        setupTabs();
+        document.getElementById('searchInput').addEventListener('input', filterPapers);
+        document.getElementById('bookSearch').addEventListener('input', () => renderBooks());
+        document.getElementById('shelfFilter').addEventListener('change', () => renderBooks());
+        document.getElementById('adPlacement').addEventListener('change', (e) => {
+            document.getElementById('adFrequencyGroup').style.display = e.target.value === 'frequency' ? 'block' : 'none';
+        });
+        if (darkMode) document.body.classList.add('dark');
+    }
+    init();
+    window.toggleDarkMode = toggleDarkMode;
+    window.shareApp = shareApp;
+    window.showHelpModal = showHelpModal;
+    window.closeHelpModal = closeHelpModal;
+    window.goToAdsTab = goToAdsTab;
+    window.filterPapers = filterPapers;
+    window.toggleBlock = toggleBlock;
+    window.openPaperQuestions = openPaperQuestions;
+    window.toggleAnswer = window.toggleAnswer;
+    window.closeQuestionModal = closeQuestionModal;
+    window.updateProgress = updateProgress;
+    window.deleteCurrentPaper = deleteCurrentPaper;
+    window.softDeletePaper = softDeletePaper;
+    window.restorePaper = restorePaper;
+    window.permanentDeletePaper = permanentDeletePaper;
+    window.addQuestionField = addQuestionField;
+    window.removeQuestion = removeQuestion;
+    window.savePaper = savePaper;
+    window.addBook = addBook;
+    window.deleteBook = deleteBook;
+    window.updateShelf = updateShelf;
+    window.exportAllData = exportAllData;
+    window.handleImportFile = handleImportFile;
+    window.addAd = addAd;
+    window.removeAd = removeAd;
+    window.saveAdSettings = saveAdSettings;
+    window.goToPage = goToPage;
+    window.closeErrorModal = closeErrorModal;
+    window.closeAdminLoginModal = closeAdminLoginModal;
+    window.submitAdminPassword = submitAdminPassword;
+    window.submitSimulationStep = submitSimulationStep;
+    window.nextSimulationStep = nextSimulationStep;
+    window.resetSimulation = resetSimulation;
+    window.createSimulation = createSimulation;
 </script>
 </body>
-</html>
+ </html>
